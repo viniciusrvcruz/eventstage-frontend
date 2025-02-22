@@ -22,7 +22,7 @@ export default async function InvatePage(props: InvitePageProps) {
 
         <div className="space-y-2">
           <h1 className="text-4xl font-semibold font-heading text-gray-100 leading-none">
-            Inscrição corfirmada!
+            Inscrição confirmada!
           </h1>
           <p className="text-gray-300">
             Para entrar no evento, acesse o link enviado para seu e-mail.
@@ -43,7 +43,7 @@ export default async function InvatePage(props: InvitePageProps) {
 
           <InviteLinkInput inviteLink={inviteLink} />
 
-          <Stats />
+          <Stats subscriberId={subscriberId} />
         </div>
       </div>
       <Ranking />
