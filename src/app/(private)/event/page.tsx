@@ -1,9 +1,9 @@
+import logo from '@/assets/logo.svg'
 import { Radio } from 'lucide-react'
 import Image from 'next/image'
-import logo from '../../assets/logo.svg'
 import { SubscriptionForm } from './subscription-form'
 
-export default function Home() {
+export default function Event() {
   return (
     <div className="min-h-dvh flex flex-col justify-center gap-16">
       <div className="flex flex-col gap-8 items-center md:items-start">
