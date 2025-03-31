@@ -1,0 +1,29 @@
+{
+  "public": {
+    "authentication": {
+      "email_label": "Email",
+      "password_label": "Senha",
+      "enter_button": "Entrar",
+      "no_account": "Ainda não possui conta?",
+      "create_account": "Crie sua conta",
+      "name_label": "Nome",
+      "name_placeholder": "Seu nome",
+      "confirm_password_label": "Confirmar Senha",
+      "register_button": "Criar conta",
+      "already_have_account": "Já possui uma conta?",
+      "login": "Faça login",
+      "register_title": "Criar conta"
+    },
+    "not_found": {
+      "title": "Página não encontrada"
+    }
+  },
+  "validations": {
+    "invalid_email": "E-mail inválido",
+    "min_password_length": "A senha deve ter no mínimo 6 caracteres",
+    "min_name_length": "O nome deve ter no mínimo 2 caracteres",
+    "password_mismatch": "As senhas não coincidem",
+    "invalid_credentials": "As credenciais são inválidas",
+    "register_error": "Erro ao criar conta"
+  }
+}

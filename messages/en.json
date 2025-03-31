@@ -1,0 +1,33 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  },
+  "public": {
+    "authentication": {
+      "email_label": "Email",
+      "password_label": "Password",
+      "enter_button": "Login",
+      "no_account": "Don't have an account yet?",
+      "create_account": "Create account",
+      "name_label": "Name",
+      "name_placeholder": "Your name",
+      "confirm_password_label": "Confirm Password",
+      "register_button": "Create account",
+      "already_have_account": "Already have an account?",
+      "login": "Login",
+      "register_title": "Create account"
+    },
+    "not_found": {
+      "title": "Page not found"
+    }
+  },
+  "validations": {
+    "invalid_email": "Invalid email",
+    "min_password_length": "Password must have at least 6 characters",
+    "min_name_length": "Name must have at least 2 characters",
+    "password_mismatch": "Passwords don't match",
+    "invalid_credentials": "Invalid credentials",
+    "register_error": "Error creating account"
+  }
+}
