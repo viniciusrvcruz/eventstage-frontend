@@ -1,5 +1,5 @@
 import Api from '@/http/api'
-import type { ILoginPayload, IRegisterPayload } from '@/types/Auth'
+import type { ILoginPayload, IRegisterPayload } from '@/types/auth'
 import type { AxiosResponse } from 'axios'
 
 export class AuthService {
