@@ -25,5 +25,10 @@
     "password_mismatch": "As senhas não coincidem",
     "invalid_credentials": "As credenciais são inválidas",
     "register_error": "Erro ao criar conta"
+  },
+  "greeting": {
+    "morning": "Bom dia",
+    "afternoon": "Boa tarde",
+    "evening": "Boa noite"
   }
 }

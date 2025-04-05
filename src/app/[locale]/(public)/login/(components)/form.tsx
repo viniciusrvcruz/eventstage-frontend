@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/button'
 import { InputField, InputIcon, InputRoot } from '@/components/input'
-import { AuthService } from '@/services/auth-service'
+import { login } from '@/services/auth-service'
 import { type ILoginPayload, LoginSchema } from '@/types/auth'
 import { alertToast } from '@/utils/helper'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -15,7 +15,6 @@ import { useForm } from 'react-hook-form'
 
 export function LoginForm() {
   const router = useRouter()
-  const authService = new AuthService()
   const t = useTranslations('public.authentication')
   const tValidations = useTranslations('validations')
 
@@ -28,10 +27,9 @@ export function LoginForm() {
   })
 
   async function onSubmit(payload: ILoginPayload) {
-    authService
-      .login(payload)
-      .then(({ data }) => {
-        Cookies.set('token', data.token)
+    login(payload)
+      .then(({ token }) => {
+        Cookies.set('token', token)
         router.push('/home')
       })
       .catch(() => alertToast(tValidations('invalid_credentials'), 'error'))

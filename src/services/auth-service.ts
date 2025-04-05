@@ -1,17 +1,26 @@
-import Api from '@/http/api'
+'use server'
+
+import { privateApi, publicApi } from '@/http/api'
+import type { IResponse } from '@/types/api'
 import type { ILoginPayload, IRegisterPayload } from '@/types/auth'
-import type { AxiosResponse } from 'axios'
+import type { UserSchema } from '@/types/user'
 
-export class AuthService {
-  private api = new Api(false)
+interface ILoginResponse extends IResponse {
+  token: string
+}
 
-  async login(payload: ILoginPayload) {
-    return this.api.post('/login', payload)
-  }
+interface IGetAuthUserResponse extends IResponse {
+  user: UserSchema
+}
 
-  async register(
-    payload: IRegisterPayload
-  ): Promise<AxiosResponse<{ token: string }>> {
-    return this.api.post('/register', payload)
-  }
+export async function login(payload: ILoginPayload) {
+  return publicApi.post<ILoginResponse>('/login', payload)
+}
+
+export async function register(payload: IRegisterPayload) {
+  return publicApi.post<IResponse>('/register', payload)
+}
+
+export async function getAuthUser() {
+  return privateApi.get<IGetAuthUserResponse>('/get-auth-user')
 }
