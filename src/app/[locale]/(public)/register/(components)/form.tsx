@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/button'
 import { InputField, InputIcon, InputRoot } from '@/components/input'
-import { AuthService } from '@/services/auth-service'
+import { register as registerUser } from '@/services/auth-service'
 import { type IRegisterPayload, RegisterSchema } from '@/types/auth'
 import { alertToast } from '@/utils/helper'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -14,7 +14,6 @@ import { useForm } from 'react-hook-form'
 
 export function RegisterForm() {
   const router = useRouter()
-  const authService = new AuthService()
   const t = useTranslations('public.authentication')
   const tValidations = useTranslations('validations')
 
@@ -27,8 +26,7 @@ export function RegisterForm() {
   })
 
   async function onSubmit(payload: IRegisterPayload) {
-    authService
-      .register(payload)
+    registerUser(payload)
       .then(async () => {
         router.push('/login')
       })
