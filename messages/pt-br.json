@@ -26,9 +26,19 @@
     "invalid_credentials": "As credenciais são inválidas",
     "register_error": "Erro ao criar conta"
   },
+  "components": {
+    "user_dropdown": {
+      "my_events_btn": "Meus eventos",
+      "logout_btn": "Sair"
+    }
+  },
   "greeting": {
     "morning": "Bom dia",
     "afternoon": "Boa tarde",
     "evening": "Boa noite"
+  },
+  "locales": {
+    "pt-br": "Português (BR)",
+    "en": "English"
   }
 }

@@ -2,15 +2,15 @@
 
 import { Button } from '@/components/button'
 import { InputField, InputIcon, InputRoot } from '@/components/input'
-import { login } from '@/services/auth-service'
+import { login, setCookie } from '@/services/auth-service'
 import { type ILoginPayload, LoginSchema } from '@/types/auth'
 import { alertToast } from '@/utils/helper'
 import { zodResolver } from '@hookform/resolvers/zod'
-import Cookies from 'js-cookie'
 import { ArrowRight, User } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 export function LoginForm() {
@@ -26,13 +26,18 @@ export function LoginForm() {
     resolver: zodResolver(LoginSchema),
   })
 
+  const [pendingRequest, setPendingRequest] = useState(false)
+
   async function onSubmit(payload: ILoginPayload) {
+    setPendingRequest(true)
+
     login(payload)
-      .then(({ token }) => {
-        Cookies.set('token', token)
+      .then(async ({ token }) => {
+        await setCookie(token)
         router.push('/home')
       })
       .catch(() => alertToast(tValidations('invalid_credentials'), 'error'))
+      .finally(() => setPendingRequest(false))
   }
 
   return (
@@ -78,7 +83,7 @@ export function LoginForm() {
           </p>
         )}
       </div>
-      <Button type="submit" className="mt-5">
+      <Button type="submit" className="mt-5" disabled={pendingRequest}>
         {t('enter_button')}
         <ArrowRight />
       </Button>

@@ -30,9 +30,19 @@
     "invalid_credentials": "Invalid credentials",
     "register_error": "Error creating account"
   },
+  "components": {
+    "user_dropdown": {
+      "my_events_btn": "My events",
+      "logout_btn": "Log out"
+    }
+  },
   "greeting": {
     "morning": "Good morning",
     "afternoon": "Good afternoon",
     "evening": "Good evening"
+  },
+  "locales": {
+    "pt-br": "Português (BR)",
+    "en": "English"
   }
 }

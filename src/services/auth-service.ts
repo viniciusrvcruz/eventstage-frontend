@@ -1,15 +1,15 @@
 'use server'
 
 import { privateApi, publicApi } from '@/http/api'
-import type { IResponse } from '@/types/api'
 import type { ILoginPayload, IRegisterPayload } from '@/types/auth'
 import type { UserSchema } from '@/types/user'
+import { cookies } from 'next/headers'
 
-interface ILoginResponse extends IResponse {
+interface ILoginResponse {
   token: string
 }
 
-interface IGetAuthUserResponse extends IResponse {
+interface IGetAuthUserResponse {
   user: UserSchema
 }
 
@@ -18,9 +18,17 @@ export async function login(payload: ILoginPayload) {
 }
 
 export async function register(payload: IRegisterPayload) {
-  return publicApi.post<IResponse>('/register', payload)
+  return publicApi.post('/register', payload)
 }
 
 export async function getAuthUser() {
   return privateApi.get<IGetAuthUserResponse>('/get-auth-user')
+}
+
+export async function setCookie(token: string) {
+  const nextCookies = await cookies()
+
+  nextCookies.set('token', token)
+
+  return true
 }
