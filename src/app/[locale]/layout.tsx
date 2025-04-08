@@ -2,7 +2,7 @@ import './globals.css'
 
 import { routing } from '@/i18n/routing'
 import type { Metadata } from 'next'
-import { hasLocale } from 'next-intl'
+import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { Montserrat, Oxanium } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { ToastContainer } from 'react-toastify'
@@ -41,7 +41,7 @@ export default async function RootLayout({
       className={`${oxanium.variable} ${montserrat.variable}`}
     >
       <body className="flex items-center flex-col bg-gray-900 text-gray-100 antialiased bg-[url(/background.png)] bg-no-repeat md:bg-right-top">
-        {children}
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <ToastContainer />
       </body>
     </html>

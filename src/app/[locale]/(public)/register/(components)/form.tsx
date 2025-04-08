@@ -10,6 +10,7 @@ import { ArrowRight, User } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 export function RegisterForm() {
@@ -25,12 +26,17 @@ export function RegisterForm() {
     resolver: zodResolver(RegisterSchema),
   })
 
+  const [pendingRequest, setPendingRequest] = useState(false)
+
   async function onSubmit(payload: IRegisterPayload) {
+    setPendingRequest(true)
+
     registerUser(payload)
       .then(async () => {
         router.push('/login')
       })
       .catch(() => alertToast(tValidations('register_error'), 'error'))
+      .finally(() => setPendingRequest(false))
   }
 
   return (
@@ -118,7 +124,7 @@ export function RegisterForm() {
         )}
       </div>
 
-      <Button type="submit" className="mt-5">
+      <Button type="submit" className="mt-5" disabled={pendingRequest}>
         {t('register_button')}
         <ArrowRight />
       </Button>
