@@ -22,6 +22,16 @@
       "title": "Page not found"
     }
   },
+  "private": {
+    "home": {
+      "events": "Events",
+      "events_description": "Join events for free, just sign up",
+      "search_events": "Search events",
+      "see_my_events": "View my events",
+      "create_new_event": "Create new event",
+      "search_events_placeholder": "Search events"
+    }
+  },
   "validations": {
     "invalid_email": "Invalid email",
     "min_password_length": "Password must have at least 6 characters",

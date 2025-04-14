@@ -21,7 +21,8 @@ export function UserDropdown({ name, email }: UserDropdownProps) {
   const t = useTranslations('components.user_dropdown')
 
   function handleLogout() {
-    redirect('/api/logout')
+    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+    redirect('/login')
   }
 
   return (

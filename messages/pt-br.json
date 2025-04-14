@@ -18,6 +18,16 @@
       "title": "Página não encontrada"
     }
   },
+  "private": {
+    "home": {
+      "events": "Eventos",
+      "events_description": "Participe de eventos gratuitamente, basta se inscrever",
+      "search_events": "Pesquisar eventos",
+      "see_my_events": "Ver meus eventos",
+      "create_new_event": "Criar novo evento",
+      "search_events_placeholder": "Pesquise por eventos"
+    }
+  },
   "validations": {
     "invalid_email": "E-mail inválido",
     "min_password_length": "A senha deve ter no mínimo 6 caracteres",

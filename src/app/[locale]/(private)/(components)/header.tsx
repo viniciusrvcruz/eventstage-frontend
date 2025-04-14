@@ -37,7 +37,9 @@ export async function Header() {
           priority={true}
         />
       </Link>
-      {t(greeting)}, {user.name}
+      <span className="mx-5 hidden truncate sm:block">
+        {t(greeting)}, {user.name}
+      </span>
       <div className="flex items-center gap-3">
         <LocaleSwitcher className="border-gray-500" />
         <UserDropdown name={user.name} email={user.email} />
