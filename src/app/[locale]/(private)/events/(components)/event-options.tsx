@@ -1,5 +1,6 @@
 'use client'
 
+import { LinkButton } from '@/app/[locale]/(private)/events/(components)/link-button'
 import { Button } from '@/components/button'
 import { InputField, InputIcon, InputRoot } from '@/components/input'
 import { cn } from '@/lib/utils'
@@ -10,7 +11,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useDebounce } from 'use-debounce'
 
 export default function EventOptions({ search }: { search?: string }) {
-  const t = useTranslations('private.home')
+  const t = useTranslations('private.events')
 
   const router = useRouter()
   const initialRender = useRef(true)
@@ -26,9 +27,9 @@ export default function EventOptions({ search }: { search?: string }) {
     }
 
     if (!query) {
-      routerPush('/home')
+      routerPush('/events')
     } else {
-      routerPush(`/home?search=${query}`)
+      routerPush(`/events?search=${query}`)
     }
   }, [query])
 
@@ -49,7 +50,7 @@ export default function EventOptions({ search }: { search?: string }) {
   function resetSearch(fullReset = false) {
     setText('')
     initialRender.current = true
-    routerPush('/home')
+    routerPush('/events')
 
     if (fullReset) {
       setIsSearching(false)
@@ -111,19 +112,20 @@ export default function EventOptions({ search }: { search?: string }) {
           <span className="hidden md:block">{t('see_my_events')}</span>
         )}
       </Button>
-      <Button
+      <LinkButton
         className={cn(
           'flex justify-center gap-1.5 text-center',
           isSearching && 'flex-1',
           isSearching && 'hidden sm:flex'
         )}
+        href="/events/create"
         type="submit"
       >
         <Plus />
         {!isSearching && (
           <span className="hidden md:block">{t('create_new_event')}</span>
         )}
-      </Button>
+      </LinkButton>
     </section>
   )
 }

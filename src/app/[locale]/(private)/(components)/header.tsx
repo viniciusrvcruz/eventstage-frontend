@@ -28,7 +28,7 @@ export async function Header() {
 
   return (
     <header className="flex items-center justify-between bg-gray-700 border border-gray-600 rounded-2xl px-5 py-3 my-10 w-full max-w-[1240px]">
-      <Link href="/home">
+      <Link href="/events">
         <Image
           src={logo}
           alt="devstage"

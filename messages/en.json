@@ -1,8 +1,4 @@
 {
-  "HomePage": {
-    "title": "Hello world!",
-    "about": "Go to the about page"
-  },
   "public": {
     "authentication": {
       "email_label": "Email",
@@ -19,17 +15,18 @@
       "register_title": "Create account"
     },
     "not_found": {
-      "title": "Page not found"
+      "title": "The requested resource was not found"
     }
   },
   "private": {
-    "home": {
-      "events": "Events",
+    "events": {
+      "title": "Events",
       "events_description": "Join events for free, just sign up",
       "search_events": "Search events",
       "see_my_events": "View my events",
       "create_new_event": "Create new event",
-      "search_events_placeholder": "Search events"
+      "search_events_placeholder": "Search events",
+      "create_an_event": "Create an event"
     }
   },
   "validations": {

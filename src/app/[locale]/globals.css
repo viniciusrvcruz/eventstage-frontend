@@ -26,6 +26,20 @@
   --radius-xl: 0.625rem
 }
 
+input {
+  color-scheme: dark;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: #13161B !important;
+  -webkit-box-shadow: 0 0 0 1000px #13161B inset !important;
+  -webkit-text-fill-color: #DAE4F2 !important;
+  caret-color: #DAE4F2 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
