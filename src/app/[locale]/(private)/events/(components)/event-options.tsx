@@ -6,14 +6,24 @@ import { InputField, InputIcon, InputRoot } from '@/components/input'
 import { cn } from '@/lib/utils'
 import { ArrowLeft, Plus, Search, TextSearch, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { useDebounce } from 'use-debounce'
 
-export default function EventOptions({ search }: { search?: string }) {
+interface IEventOptionsProps {
+  search?: string
+  myEvents?: boolean
+  mySubscriptions?: boolean
+}
+
+export default function EventOptions({
+  search,
+  mySubscriptions,
+}: IEventOptionsProps) {
   const t = useTranslations('private.events')
 
-  const router = useRouter()
+  const { replace } = useRouter()
+  const pathname = usePathname()
   const initialRender = useRef(true)
 
   const [isSearching, setIsSearching] = useState(!!search)
@@ -26,11 +36,14 @@ export default function EventOptions({ search }: { search?: string }) {
       return
     }
 
-    if (!query) {
-      routerPush('/events')
+    const params = new URLSearchParams()
+    if (query) {
+      params.set('search', query)
     } else {
-      routerPush(`/events?search=${query}`)
+      params.delete('search')
     }
+
+    routerReplace(params.toString())
   }, [query])
 
   function handleSearch() {
@@ -43,14 +56,14 @@ export default function EventOptions({ search }: { search?: string }) {
     })
   }
 
-  function routerPush(route: string) {
-    router.push(route)
+  function routerReplace(params?: string) {
+    replace(`${pathname}${params ? `?${params}` : ''}`)
   }
 
   function resetSearch(fullReset = false) {
     setText('')
     initialRender.current = true
-    routerPush('/events')
+    routerReplace()
 
     if (fullReset) {
       setIsSearching(false)
@@ -109,7 +122,7 @@ export default function EventOptions({ search }: { search?: string }) {
       >
         <TextSearch />
         {!isSearching && (
-          <span className="hidden md:block">{t('see_my_events')}</span>
+          <span className="hidden md:block">{t('my_subscriptions')}</span>
         )}
       </Button>
       <LinkButton
