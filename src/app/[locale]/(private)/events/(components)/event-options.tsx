@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { useDebounce } from 'use-debounce'
+import { EventFilterDropdown } from './event-filter-dropdown'
 
 interface IEventOptionsProps {
   search?: string
@@ -18,7 +19,7 @@ interface IEventOptionsProps {
 
 export default function EventOptions({
   search,
-  mySubscriptions,
+  mySubscriptions: mySubscriptionsProp,
 }: IEventOptionsProps) {
   const t = useTranslations('private.events')
 
@@ -27,8 +28,9 @@ export default function EventOptions({
   const initialRender = useRef(true)
 
   const [isSearching, setIsSearching] = useState(!!search)
-  const [text, setText] = useState(search ? search : '')
+  const [text, setText] = useState(search ?? '')
   const [query] = useDebounce(text, 300)
+  const [mySubscriptions, setMySubscriptions] = useState(mySubscriptionsProp)
 
   useEffect(() => {
     if (initialRender.current) {
@@ -37,14 +39,17 @@ export default function EventOptions({
     }
 
     const params = new URLSearchParams()
+
     if (query) {
       params.set('search', query)
-    } else {
-      params.delete('search')
+    }
+
+    if (mySubscriptions) {
+      params.set('mySubscriptions', 'true')
     }
 
     routerReplace(params.toString())
-  }, [query])
+  }, [query, mySubscriptions])
 
   function handleSearch() {
     setIsSearching((prev) => {
@@ -56,6 +61,10 @@ export default function EventOptions({
     })
   }
 
+  function handleMySubscriptionsToggle() {
+    setMySubscriptions((prev) => !prev)
+  }
+
   function routerReplace(params?: string) {
     replace(`${pathname}${params ? `?${params}` : ''}`)
   }
@@ -63,7 +72,14 @@ export default function EventOptions({
   function resetSearch(fullReset = false) {
     setText('')
     initialRender.current = true
-    routerReplace()
+
+    const params = new URLSearchParams()
+
+    if (mySubscriptions) {
+      params.set('mySubscriptions', 'true')
+    }
+
+    routerReplace(params.toString())
 
     if (fullReset) {
       setIsSearching(false)
@@ -112,19 +128,7 @@ export default function EventOptions({
           <span className="hidden md:block">{t('search_events')}</span>
         </Button>
       )}
-      <Button
-        className={cn(
-          'flex justify-center gap-1.5 text-center',
-          isSearching && 'flex-1',
-          isSearching && 'hidden sm:flex'
-        )}
-        type="submit"
-      >
-        <TextSearch />
-        {!isSearching && (
-          <span className="hidden md:block">{t('my_subscriptions')}</span>
-        )}
-      </Button>
+      <EventFilterDropdown filter={null} isSearching={isSearching} />
       <LinkButton
         className={cn(
           'flex justify-center gap-1.5 text-center',
