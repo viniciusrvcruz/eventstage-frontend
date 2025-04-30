@@ -41,7 +41,8 @@
       "create_event_success": "Evento criado com sucesso",
       "update_event_success": "Evento editado com sucesso",
       "create_event_fail": "Não foi possível criar o evento",
-      "update_event_fail": "Não foi possível editar evento"
+      "update_event_fail": "Não foi possível editar evento",
+      "remove": "Remover"
     }
   },
   "validations": {
@@ -59,7 +60,6 @@
   },
   "components": {
     "user_dropdown": {
-      "my_events_btn": "Meus eventos",
       "logout_btn": "Sair"
     }
   },

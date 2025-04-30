@@ -9,13 +9,13 @@ import type { EventSchema } from '@/types/event'
 interface IInfiniteScrollEventsProps {
   search: string | undefined
   initialEvents: EventSchema[] | undefined
-  mySubscriptions?: boolean
+  filter?: string
 }
 
 export default function InfiniteScrollEvents({
   search,
   initialEvents,
-  mySubscriptions,
+  filter,
 }: IInfiniteScrollEventsProps) {
   const [events, setEvents] = useState(initialEvents)
   const [page, setPage] = useState(1)
@@ -27,7 +27,7 @@ export default function InfiniteScrollEvents({
     const { events: eventsResponse } = await getEvents({
       search,
       page: next,
-      mySubscriptions,
+      filter,
     })
 
     if (eventsResponse?.length) {

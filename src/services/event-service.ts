@@ -16,7 +16,7 @@ interface IGetEventsProps {
   search?: string
   page: number
   myEvents?: boolean
-  mySubscriptions?: boolean
+  filter?: string
 }
 
 export async function getEvent(eventId: string): Promise<EventSchema | null> {
@@ -43,7 +43,7 @@ export async function getEvents({
   search,
   page,
   myEvents = false,
-  mySubscriptions = false,
+  filter,
 }: IGetEventsProps): Promise<IGetEventsResponse> {
   const searchParams = new URLSearchParams()
 
@@ -57,8 +57,8 @@ export async function getEvents({
     searchParams.set('myEvents', String(myEvents))
   }
 
-  if (mySubscriptions) {
-    searchParams.set('mySubscriptions', String(mySubscriptions))
+  if (filter) {
+    searchParams.set(filter, 'true')
   }
 
   try {

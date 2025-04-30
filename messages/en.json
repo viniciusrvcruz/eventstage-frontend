@@ -39,7 +39,6 @@
   },
   "components": {
     "user_dropdown": {
-      "my_events_btn": "My events",
       "logout_btn": "Log out"
     }
   },

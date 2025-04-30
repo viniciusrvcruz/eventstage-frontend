@@ -35,8 +35,7 @@ export function UserDropdown({ name, email }: UserDropdownProps) {
           <h5 className="text-lg leading-none truncate">{name}</h5>
           <small>{email}</small>
         </DropdownMenuLabel>
-        <DropdownMenuSeparator className="bg-gray-500" />
-        <DropdownMenuItem>{t('my_events_btn')}</DropdownMenuItem>
+        <DropdownMenuSeparator />
         <DropdownMenuItem onClick={handleLogout}>
           {t('logout_btn')}
         </DropdownMenuItem>
