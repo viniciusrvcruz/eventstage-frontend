@@ -1,4 +1,5 @@
 import { EventForm } from '@/components/event-form'
+import { GoBackButton } from '@/components/go-back-button'
 import { getEvent } from '@/services/event-service'
 import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
@@ -15,11 +16,12 @@ export default async function EditEvent(props: EditEventProps) {
   if (!event) notFound()
 
   return (
-    <div className="flex flex-col justify-center space-y-10">
-      <h1 className="text-4xl text-center leading-none font-heading font-medium flex flex-col md:text-6xl">
-        {t('edit_event')}
-      </h1>
-      <div className="w-full flex justify-center">
+    <div>
+      <GoBackButton />
+      <div className="w-full flex flex-col items-center justify-center">
+        <h1 className="text-4xl text-center leading-none font-heading font-medium mb-10 flex flex-col md:text-6xl">
+          {t('edit_event')}
+        </h1>
         <EventForm event={event} />
       </div>
     </div>

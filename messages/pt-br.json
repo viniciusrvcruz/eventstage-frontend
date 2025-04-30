@@ -42,7 +42,7 @@
       "update_event_success": "Evento editado com sucesso",
       "create_event_fail": "Não foi possível criar o evento",
       "update_event_fail": "Não foi possível editar evento",
-      "remove": "Remover"
+      "remove_filter": "Remover filtro"
     }
   },
   "validations": {
@@ -61,7 +61,8 @@
   "components": {
     "user_dropdown": {
       "logout_btn": "Sair"
-    }
+    },
+    "go_back": "Voltar"
   },
   "greeting": {
     "morning": "Bom dia",

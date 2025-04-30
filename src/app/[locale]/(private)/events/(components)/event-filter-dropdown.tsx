@@ -99,7 +99,7 @@ export function EventFilterDropdown({
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={() => setFilter(null)}>
               <Trash2 />
-              {t('remove')}
+              {t('remove_filter')}
             </DropdownMenuItem>
           </>
         )}
