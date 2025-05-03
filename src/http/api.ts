@@ -18,8 +18,10 @@ const call = async <T = unknown>(
   data: object = {},
   options: CallOptions = { isPrivate: false }
 ): Promise<T> => {
-  const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
+  const headers: Record<string, string> = {}
+
+  if (method === 'post' || method === 'put') {
+    headers['Content-Type'] = 'application/json'
   }
 
   if (options.isPrivate) {
@@ -35,7 +37,13 @@ const call = async <T = unknown>(
   })
 
   try {
-    const response = await api[method](url, data)
+    let response = null
+
+    if (method === 'get' || method === 'delete') {
+      response = await api[method](url, { params: data })
+    } else {
+      response = await api[method](url, data)
+    }
 
     return response.data
   } catch (error) {

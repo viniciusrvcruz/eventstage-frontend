@@ -34,7 +34,7 @@ export function LoginForm() {
     login(payload)
       .then(async ({ token }) => {
         await setCookie(token)
-        router.push('/home')
+        router.push('/events')
       })
       .catch(() => alertToast(tValidations('invalid_credentials'), 'error'))
       .finally(() => setPendingRequest(false))

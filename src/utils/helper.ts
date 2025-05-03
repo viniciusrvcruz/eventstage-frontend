@@ -11,3 +11,16 @@ export function alertToast(
     theme: 'dark',
   })
 }
+
+export function decodeToken(token: string | undefined) {
+  if (!token) return null
+
+  try {
+    const arrayToken = token.split('.')
+    const user = JSON.parse(atob(arrayToken[1]))
+
+    return user
+  } catch (e) {
+    return null
+  }
+}

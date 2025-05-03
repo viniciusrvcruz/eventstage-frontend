@@ -6,7 +6,7 @@ export default async function PrivateLayout({
   children: React.ReactNode
 }>) {
   return (
-    <div className="max-w-[1240px] w-full px-5 py-8 md:py-0">
+    <div className="max-w-[1240px] w-full px-5 py-0">
       <Header />
       <main>{children}</main>
     </div>

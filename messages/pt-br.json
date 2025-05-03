@@ -15,7 +15,41 @@
       "register_title": "Criar conta"
     },
     "not_found": {
-      "title": "Página não encontrada"
+      "title": "O recurso solicitado não foi encontrado"
+    }
+  },
+  "private": {
+    "events": {
+      "title": "Eventos",
+      "events_description": "Participe de eventos gratuitamente, basta se inscrever",
+      "search_events": "Pesquisar eventos",
+      "my_subscriptions": "Minhas inscrições",
+      "my_events": "Meus eventos",
+      "filter": "Filtro",
+      "create_new_event": "Criar novo evento",
+      "search_events_placeholder": "Pesquise por eventos",
+      "create_an_event": "Crie um evento",
+      "form_title": "Título",
+      "form_subtitle": "Sub-título",
+      "form_description": "Descrição",
+      "form_date": "Data",
+      "form_link": "https://site.com.br",
+      "form_link_placeholder": "Link do evento",
+      "form_is_live": "O evento será ao vivo?",
+      "form_confirm": "Confirmar",
+      "edit_event": "Editar evento",
+      "create_event_success": "Evento criado com sucesso",
+      "update_event_success": "Evento editado com sucesso",
+      "create_event_fail": "Não foi possível criar o evento",
+      "update_event_fail": "Não foi possível editar evento",
+      "remove_filter": "Remover filtro",
+      "edit": "Editar",
+      "delete": "Deletar",
+      "delete_question": "Deseja mesmo deletar \"{event_title}\"?",
+      "delete_description": "O evento será deletado permanentemente e não poderá mais receber inscrições.",
+      "cancel": "Cancelar",
+      "deleted_success": "Evento deletado com sucesso",
+      "deleted_fail": "Não foi possível deletar o evento"
     }
   },
   "validations": {
@@ -24,13 +58,18 @@
     "min_name_length": "O nome deve ter no mínimo 2 caracteres",
     "password_mismatch": "As senhas não coincidem",
     "invalid_credentials": "As credenciais são inválidas",
-    "register_error": "Erro ao criar conta"
+    "register_error": "Erro ao criar conta",
+    "required": "Campo obrigatório",
+    "min_chars": "Mínimo de 2 caracteres",
+    "invalid_date": "Data inválida",
+    "invalid_url": "O campo deve ser uma url válida",
+    "max_url": "URL muito longa (máx. 2048 caracteres)"
   },
   "components": {
     "user_dropdown": {
-      "my_events_btn": "Meus eventos",
       "logout_btn": "Sair"
-    }
+    },
+    "go_back": "Voltar"
   },
   "greeting": {
     "morning": "Bom dia",

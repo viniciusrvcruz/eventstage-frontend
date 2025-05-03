@@ -28,7 +28,7 @@ export async function Header() {
 
   return (
     <header className="flex items-center justify-between bg-gray-700 border border-gray-600 rounded-2xl px-5 py-3 my-10 w-full max-w-[1240px]">
-      <Link href="/home">
+      <Link href="/events">
         <Image
           src={logo}
           alt="devstage"
@@ -37,7 +37,9 @@ export async function Header() {
           priority={true}
         />
       </Link>
-      {t(greeting)}, {user.name}
+      <span className="mx-5 hidden truncate sm:block">
+        {t(greeting)}, {user.name}
+      </span>
       <div className="flex items-center gap-3">
         <LocaleSwitcher className="border-gray-500" />
         <UserDropdown name={user.name} email={user.email} />
