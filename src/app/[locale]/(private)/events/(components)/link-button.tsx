@@ -1,11 +1,15 @@
+import Link from 'next/link'
 import type { ComponentProps } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-interface ButtonProps extends ComponentProps<'button'> {}
+interface LinkButtonProps extends ComponentProps<'a'> {
+  href: string
+}
 
-export function Button({ className, ...props }: ButtonProps) {
+export function LinkButton({ href, className, ...props }: LinkButtonProps) {
   return (
-    <button
+    <Link
+      href={href}
       className={twMerge(
         'flex justify-between items-center px-5 h-12 bg-gray-500 text-blue font-semibold rounded-xl w-full cursor-pointer transition-colors duration-300 hover:bg-blue hover:text-gray-900',
         className

@@ -1,0 +1,83 @@
+{
+  "public": {
+    "authentication": {
+      "email_label": "Email",
+      "password_label": "Password",
+      "enter_button": "Login",
+      "no_account": "Don't have an account yet?",
+      "create_account": "Create account",
+      "name_label": "Name",
+      "name_placeholder": "Your name",
+      "confirm_password_label": "Confirm Password",
+      "register_button": "Create account",
+      "already_have_account": "Already have an account?",
+      "login": "Login",
+      "register_title": "Create account"
+    },
+    "not_found": {
+      "title": "The requested resource was not found"
+    }
+  },
+  "private": {
+    "events": {
+      "title": "Events",
+      "events_description": "Join events for free, just sign up",
+      "search_events": "Search events",
+      "my_subscriptions": "My subscriptions",
+      "my_events": "My events",
+      "filter": "Filter",
+      "create_new_event": "Create new event",
+      "search_events_placeholder": "Search events",
+      "create_an_event": "Create an event",
+      "form_title": "Title",
+      "form_subtitle": "Subtitle",
+      "form_description": "Description",
+      "form_date": "Date",
+      "form_link": "https://site.com.br",
+      "form_link_placeholder": "Event link",
+      "form_is_live": "Will the event be live?",
+      "form_confirm": "Confirm",
+      "edit_event": "Edit event",
+      "create_event_success": "Event created successfully",
+      "update_event_success": "Event updated successfully",
+      "create_event_fail": "Could not create the event",
+      "update_event_fail": "Could not update the event",
+      "remove_filter": "Remove filter",
+      "edit": "Edit",
+      "delete": "Delete",
+      "delete_question": "Do you really want to delete \"{event_title}\"?",
+      "delete_description": "The event will be permanently deleted and will no longer receive subscriptions.",
+      "cancel": "Cancel",
+      "deleted_success": "Event deleted successfully",
+      "deleted_fail": "Could not delete the event"
+    }
+  },
+  "validations": {
+    "invalid_email": "Invalid email",
+    "min_password_length": "Password must have at least 6 characters",
+    "min_name_length": "Name must have at least 2 characters",
+    "password_mismatch": "Passwords don't match",
+    "invalid_credentials": "Invalid credentials",
+    "register_error": "Error creating account",
+    "required": "Required field",
+    "min_chars": "Minimum of 2 characters",
+    "invalid_date": "Invalid date",
+    "invalid_url": "The field must be a valid URL",
+    "max_url": "URL too long (max. 2048 characters)"
+  },
+  "components": {
+    "user_dropdown": {
+      "logout_btn": "Log out"
+    },
+    "go_back": "Go back"
+  },
+  "greeting": {
+    "morning": "Good morning",
+    "afternoon": "Good afternoon",
+    "evening": "Good evening"
+  },
+  "locales": {
+    "pt-br": "Português (BR)",
+    "en": "English"
+  }
+}
