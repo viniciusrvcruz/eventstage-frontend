@@ -8,7 +8,8 @@ import {
   TextareaRoot,
 } from '@/components/textarea'
 import { createEvent, updateEvent } from '@/services/event-service'
-import { EventSchema } from '@/types/event'
+import { eventPayloadSchema } from '@/types/event'
+import type { EventPayloadSchema } from '@/types/event'
 import { alertToast } from '@/utils/helper'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {
@@ -24,7 +25,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 interface EventFormProps {
-  event?: EventSchema
+  event?: EventPayloadSchema
 }
 
 export function EventForm({ event }: EventFormProps) {
@@ -37,17 +38,17 @@ export function EventForm({ event }: EventFormProps) {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<EventSchema>({
+  } = useForm<EventPayloadSchema>({
     defaultValues: event
       ? {
           ...event,
           date: new Date(event.date).toISOString().slice(0, 16),
         }
       : undefined,
-    resolver: zodResolver(EventSchema),
+    resolver: zodResolver(eventPayloadSchema),
   })
 
-  function onSubmit(data: EventSchema) {
+  function onSubmit(data: EventPayloadSchema) {
     setIsSubmitting(true)
 
     if (event?.id) {

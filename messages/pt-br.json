@@ -42,7 +42,14 @@
       "update_event_success": "Evento editado com sucesso",
       "create_event_fail": "Não foi possível criar o evento",
       "update_event_fail": "Não foi possível editar evento",
-      "remove_filter": "Remover filtro"
+      "remove_filter": "Remover filtro",
+      "edit": "Editar",
+      "delete": "Deletar",
+      "delete_question": "Deseja mesmo deletar \"{event_title}\"?",
+      "delete_description": "O evento será deletado permanentemente e não poderá mais receber inscrições.",
+      "cancel": "Cancelar",
+      "deleted_success": "Evento deletado com sucesso",
+      "deleted_fail": "Não foi possível deletar o evento"
     }
   },
   "validations": {

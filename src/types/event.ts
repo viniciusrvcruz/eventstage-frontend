@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
-export const EventSchema = z.object({
-  id: z.string().optional(),
+export const eventSchema = z.object({
+  id: z.string(),
   title: z.string().min(1, 'required'),
   subtitle: z.string().min(2, 'min_chars'),
   description: z.string().min(2, 'min_chars'),
@@ -20,6 +20,19 @@ export const EventSchema = z.object({
     .url('invalid_url')
     .max(2048, { message: 'max_url' }),
   is_live: z.boolean(),
+  createdBy: z.string(),
+  createdAt: z.date(),
 })
 
-export type EventSchema = z.infer<typeof EventSchema>
+export type EventSchema = z.infer<typeof eventSchema>
+
+export const eventPayloadSchema = eventSchema
+  .omit({
+    createdBy: true,
+    createdAt: true,
+  })
+  .extend({
+    id: eventSchema.shape.id.optional(),
+  })
+
+export type EventPayloadSchema = z.infer<typeof eventPayloadSchema>

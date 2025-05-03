@@ -1,6 +1,8 @@
 import { eventFilters } from '@/constants/event-filters'
 import { getEvents } from '@/services/event-service'
+import { decodeToken } from '@/utils/helper'
 import { getTranslations } from 'next-intl/server'
+import { cookies } from 'next/headers'
 import EventOptions from './(components)/event-options'
 import InfiniteScrollEvents from './(components)/infinite-scroll-events'
 
@@ -28,6 +30,11 @@ export default async function Events(props: {
     filter: selectedFilter?.value,
   })
 
+  const nextCookies = await cookies()
+
+  const token = nextCookies.get('token')
+  const userId = decodeToken(token?.value)?.id
+
   return (
     <div className="space-y-5">
       <div>
@@ -47,6 +54,7 @@ export default async function Events(props: {
         search={search}
         initialEvents={events}
         filter={selectedFilter?.value}
+        userId={userId}
       />
     </div>
   )

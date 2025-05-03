@@ -1,7 +1,7 @@
 'use server'
 
 import { privateApi } from '@/http/api'
-import type { EventSchema } from '@/types/event'
+import type { EventPayloadSchema, EventSchema } from '@/types/event'
 
 interface IEventResponse {
   event: EventSchema
@@ -28,12 +28,14 @@ export async function getEvent(eventId: string): Promise<EventSchema | null> {
   }
 }
 
-export async function createEvent(event: EventSchema): Promise<IEventResponse> {
+export async function createEvent(
+  event: EventPayloadSchema
+): Promise<IEventResponse> {
   return privateApi.post('/events', event)
 }
 
 export async function updateEvent(
-  event: EventSchema,
+  event: EventPayloadSchema,
   eventId: string
 ): Promise<IEventResponse> {
   return privateApi.put(`/events/${eventId}`, event)
@@ -73,4 +75,8 @@ export async function getEvents({
       total: 0,
     }
   }
+}
+
+export async function deleteEvent(eventId: string) {
+  return privateApi.del(`/events/${eventId}`)
 }
