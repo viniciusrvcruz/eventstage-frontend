@@ -1,4 +1,4 @@
-import { getRanking } from '@/http/api'
+import { getRanking } from '@/lib/api-request'
 import Image from 'next/image'
 import medalCooper from '../../../assets/medal-cooper.svg'
 import medalGold from '../../../assets/medal-gold.svg'

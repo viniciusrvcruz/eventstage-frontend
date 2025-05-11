@@ -1,6 +1,6 @@
 'use server'
 
-import { privateApi } from '@/http/api'
+import { apiRequest } from '@/lib/api-request'
 import type { EventPayloadSchema, EventSchema } from '@/types/event'
 
 interface IEventResponse {
@@ -21,7 +21,7 @@ interface IGetEventsProps {
 
 export async function getEvent(eventId: string): Promise<EventSchema | null> {
   try {
-    const response = await privateApi.get<IEventResponse>(`/events/${eventId}`)
+    const response = await apiRequest('GET', `events/${eventId}`)
     return response.event
   } catch (error) {
     return null
@@ -31,14 +31,14 @@ export async function getEvent(eventId: string): Promise<EventSchema | null> {
 export async function createEvent(
   event: EventPayloadSchema
 ): Promise<IEventResponse> {
-  return privateApi.post('/events', event)
+  return apiRequest('POST', 'events', event)
 }
 
 export async function updateEvent(
   event: EventPayloadSchema,
   eventId: string
 ): Promise<IEventResponse> {
-  return privateApi.put(`/events/${eventId}`, event)
+  return apiRequest('PUT', `events/${eventId}`, event)
 }
 
 export async function getEvents({
@@ -64,8 +64,9 @@ export async function getEvents({
   }
 
   try {
-    const response = await privateApi.get<IGetEventsResponse>(
-      `/events${searchParams ? `?${searchParams.toString()}` : ''}`
+    const response = await apiRequest(
+      'GET',
+      `events${searchParams ? `?${searchParams.toString()}` : ''}`
     )
 
     return response
@@ -78,5 +79,5 @@ export async function getEvents({
 }
 
 export async function deleteEvent(eventId: string) {
-  return privateApi.del(`/events/${eventId}`)
+  return apiRequest('DELETE', `events/${eventId}`)
 }

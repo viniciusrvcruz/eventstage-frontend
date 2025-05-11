@@ -24,3 +24,24 @@ export function decodeToken(token: string | undefined) {
     return null
   }
 }
+
+export function getDateParams(
+  dateISO: string,
+  t: (key: string, params?: Record<string, string | number>) => string
+) {
+  const date = new Date(dateISO)
+
+  const day = date.getUTCDate()
+  const month = t(`months.${date.getUTCMonth()}`)
+  const year = date.getUTCFullYear()
+  const hour = String(date.getUTCHours()).padStart(2, '0')
+  const minute = String(date.getUTCMinutes()).padStart(2, '0')
+
+  return t('private.events.event_date', {
+    day,
+    month,
+    year,
+    hour,
+    minute,
+  })
+}

@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { subscriptionSchema } from './subscription'
 
 export const eventSchema = z.object({
   id: z.string(),
@@ -22,6 +23,7 @@ export const eventSchema = z.object({
   is_live: z.boolean(),
   createdBy: z.string(),
   createdAt: z.date(),
+  subscription: subscriptionSchema.nullish(),
 })
 
 export type EventSchema = z.infer<typeof eventSchema>
