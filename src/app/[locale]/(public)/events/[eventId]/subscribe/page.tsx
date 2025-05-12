@@ -1,7 +1,9 @@
+import { getAuthUser } from '@/services/auth-service'
 import { getEvent } from '@/services/event-service'
 import { getDateParams } from '@/utils/helper'
 import { Radio } from 'lucide-react'
 import { getTranslations } from 'next-intl/server'
+import { cookies } from 'next/headers'
 import { notFound } from 'next/navigation'
 import { SubscriptionForm } from './(components)/subscription-form'
 
@@ -13,6 +15,16 @@ export default async function EventSubscription(props: EventSubscriptionProps) {
   const t = await getTranslations()
   const { eventId } = await props.params
   const event = await getEvent(eventId)
+  let user = null
+  const token = (await cookies()).get('token')?.value
+
+  if (token) {
+    try {
+      const { user: authUser } = await getAuthUser()
+
+      user = authUser
+    } catch {}
+  }
 
   if (!event) notFound()
 
@@ -51,7 +63,7 @@ export default async function EventSubscription(props: EventSubscriptionProps) {
         </div>
 
         <div className="md:min-w-[320px] lg:min-w-[430px]">
-          <SubscriptionForm />
+          <SubscriptionForm user={user} eventId={eventId} />
         </div>
       </div>
     </div>

@@ -29,14 +29,14 @@ export async function Header({ authUser }: HeaderProps) {
 
   const getGreeting = () => {
     const hour = new Date().getHours()
-    const greeting = 'evening'
+    let greeting = 'evening'
 
     if (hour >= 5 && hour < 12) {
-      return 'morning'
+      greeting = 'morning'
     }
 
     if (hour >= 12 && hour < 18) {
-      return 'afternoon'
+      greeting = 'afternoon'
     }
 
     return `${t(greeting)}, ${user?.name}`

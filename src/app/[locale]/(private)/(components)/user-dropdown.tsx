@@ -8,6 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { removeTokenFromCookies } from '@/utils/helper'
 import { User } from 'lucide-react'
 import { redirect } from 'next/navigation'
 import { useTranslations } from 'use-intl'
@@ -21,7 +22,7 @@ export function UserDropdown({ name, email }: UserDropdownProps) {
   const t = useTranslations('components.user_dropdown')
 
   function handleLogout() {
-    document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
+    removeTokenFromCookies()
     redirect('/login')
   }
 

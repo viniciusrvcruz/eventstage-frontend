@@ -1,5 +1,4 @@
 import { getAuthUser } from '@/services/auth-service'
-import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { Header } from './(components)/header'
 
@@ -15,13 +14,12 @@ export default async function PrivateLayout({
 
     authUser = response.user
   } catch {
-    ;(await cookies()).delete('token')
-    redirect('/login')
+    redirect('/logout')
   }
 
   return (
     <div className="max-w-[1240px] w-full px-5 py-0">
-      <Header />
+      <Header authUser={authUser} />
       <main>{children}</main>
     </div>
   )

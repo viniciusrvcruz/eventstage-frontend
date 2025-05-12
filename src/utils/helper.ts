@@ -45,3 +45,8 @@ export function getDateParams(
     minute,
   })
 }
+
+export function removeTokenFromCookies() {
+  const date = new Date(0).toUTCString()
+  document.cookie = `token=; expires=${date}; path=/`
+}

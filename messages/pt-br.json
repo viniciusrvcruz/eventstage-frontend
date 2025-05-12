@@ -14,6 +14,17 @@
       "login": "Faça login",
       "register_title": "Criar conta"
     },
+    "events": {
+      "registration": "Inscrição",
+      "full_name": "Nome completo",
+      "email": "E-mail",
+      "enter_full_name": "Digite seu nome completo",
+      "enter_valid_email": "Digite um e-mail válido",
+      "subscribe_btn": "Inscrever-se",
+      "create_subscription_error": "Não foi possível se inscrever no evento",
+      "subscription_success": "Inscrição realizada com sucesso",
+      "subscritption_success_login": "Inscrição realizada com sucesso, faça login para acessar o evento"
+    },
     "not_found": {
       "title": "O recurso solicitado não foi encontrado"
     }

@@ -2,21 +2,30 @@
 
 import { Button } from '@/components/button'
 import { InputField, InputIcon, InputRoot } from '@/components/input'
-// import { subscribeToEvent } from '@/http/api'
+import { createSubscriptionToEvent } from '@/services/event-subscription-service'
+import type { UserSchema } from '@/types/user'
+import { alertToast, removeTokenFromCookies } from '@/utils/helper'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRight, Mail, User } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 
 const subscriptionSchema = z.object({
-  name: z.string().min(2, 'Digite seu nome completo'),
-  email: z.string().email('Digite um e-mail válido'),
+  name: z.string().min(2, 'enter_full_name'),
+  email: z.string().email('enter_valid_email'),
 })
 
 type SubscriptionSchema = z.infer<typeof subscriptionSchema>
 
-export function SubscriptionForm() {
+interface SubscriptionFormProps {
+  user: UserSchema | null
+  eventId: string
+}
+
+export function SubscriptionForm({ user, eventId }: SubscriptionFormProps) {
+  const t = useTranslations('public.events')
   const router = useRouter()
   const searchParams = useSearchParams()
 
@@ -25,15 +34,37 @@ export function SubscriptionForm() {
     handleSubmit,
     formState: { errors },
   } = useForm<SubscriptionSchema>({
+    defaultValues: user
+      ? {
+          name: user.name,
+          email: user.email,
+        }
+      : undefined,
     resolver: zodResolver(subscriptionSchema),
   })
 
   async function onSubscribe({ name, email }: SubscriptionSchema) {
     const referrer = searchParams.get('referrer')
 
-    // const { subscriberId } = await subscribeToEvent({ name, email, referrer })
+    const subscription = user
+      ? { name: user.name, email: user.email, referrer }
+      : { name, email, referrer }
 
-    // router.push(`/invite/${subscriberId}`)
+    await createSubscriptionToEvent(subscription, eventId)
+      .then(() => {
+        if (user) {
+          alertToast(t('subscription_success'), 'success')
+          router.replace(`/events/${eventId}/details`)
+
+          return
+        }
+
+        alertToast(t('subscritption_success_login'), 'success')
+
+        removeTokenFromCookies()
+        router.replace('/login')
+      })
+      .catch(() => alertToast(t('create_subscription_error'), 'error'))
   }
 
   return (
@@ -42,51 +73,53 @@ export function SubscriptionForm() {
       className="bg-gray-700 border border-gray-600 rounded-2xl p-8 space-y-6 w-full md:max-w-[440px]"
     >
       <h2 className="font-heading font-semibold text-gray-200 text-xl">
-        Inscrição
+        {t('registration')}
       </h2>
 
-      <div className="space-y-3">
-        <div className="space-y-2">
-          <InputRoot>
-            <InputIcon>
-              <User />
-            </InputIcon>
-            <InputField
-              type="text"
-              placeholder="Nome completo"
-              {...register('name')}
-            />
-          </InputRoot>
+      {!user && (
+        <div className="space-y-3">
+          <div className="space-y-2">
+            <InputRoot>
+              <InputIcon>
+                <User />
+              </InputIcon>
+              <InputField
+                type="text"
+                placeholder={t('full_name')}
+                {...register('name')}
+              />
+            </InputRoot>
 
-          {errors.name && (
-            <p className="text-danger text-xs font-semibold">
-              {errors.name.message}
-            </p>
-          )}
+            {errors.name && (
+              <p className="text-danger text-xs font-semibold">
+                {t(errors.name.message as string)}
+              </p>
+            )}
+          </div>
+
+          <div className="space-y-2">
+            <InputRoot>
+              <InputIcon>
+                <Mail />
+              </InputIcon>
+              <InputField
+                type="email"
+                placeholder={t('email')}
+                {...register('email')}
+              />
+            </InputRoot>
+
+            {errors.email && (
+              <p className="text-danger text-xs font-semibold">
+                {t(errors.email.message as string)}
+              </p>
+            )}
+          </div>
         </div>
-
-        <div className="space-y-2">
-          <InputRoot>
-            <InputIcon>
-              <Mail />
-            </InputIcon>
-            <InputField
-              type="email"
-              placeholder="E-mail"
-              {...register('email')}
-            />
-          </InputRoot>
-
-          {errors.email && (
-            <p className="text-danger text-xs font-semibold">
-              {errors.email.message}
-            </p>
-          )}
-        </div>
-      </div>
+      )}
 
       <Button type="submit">
-        Confirmar
+        {t('subscribe_btn')}
         <ArrowRight />
       </Button>
     </form>
