@@ -5,8 +5,8 @@ export default function RegisterPage() {
   const t = useTranslations('public.authentication')
 
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="text-6xl text-center font-heading mb-14">
+    <div className="flex flex-col items-center pt-5">
+      <h1 className="text-6xl text-center font-heading mb-10">
         {t('register_title')}
       </h1>
 

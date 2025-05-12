@@ -1,30 +1,46 @@
 import logo from '@/assets/logo.svg'
 import LocaleSwitcher from '@/components/locale-switcher'
 import { getAuthUser } from '@/services/auth-service'
+import type { UserSchema } from '@/types/user'
 import { getTranslations } from 'next-intl/server'
+import { cookies } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
+import AuthButtons from './auth-buttons'
 import { UserDropdown } from './user-dropdown'
 
-export async function Header() {
-  const { user } = await getAuthUser()
+interface HeaderProps {
+  authUser?: UserSchema
+}
+
+export async function Header({ authUser }: HeaderProps) {
+  let user = authUser ? { ...authUser } : null
+  const token = (await cookies()).get('token')?.value
+
+  if (!user && token) {
+    try {
+      const { user: authUser } = await getAuthUser()
+
+      user = authUser
+    } catch {}
+  }
+
   const t = await getTranslations('greeting')
 
   const getGreeting = () => {
     const hour = new Date().getHours()
+    let greeting = 'evening'
 
     if (hour >= 5 && hour < 12) {
-      return 'morning'
+      greeting = 'morning'
     }
 
     if (hour >= 12 && hour < 18) {
-      return 'afternoon'
+      greeting = 'afternoon'
     }
 
-    return 'evening'
+    return `${t(greeting)}, ${user?.name}`
   }
-
-  const greeting = getGreeting()
 
   return (
     <header className="flex items-center justify-between bg-gray-700 border border-gray-600 rounded-2xl px-5 py-3 my-10 w-full max-w-[1240px]">
@@ -37,12 +53,13 @@ export async function Header() {
           priority={true}
         />
       </Link>
-      <span className="mx-5 hidden truncate sm:block">
-        {t(greeting)}, {user.name}
-      </span>
+      {user && (
+        <span className="mx-5 hidden truncate sm:block">{getGreeting()}</span>
+      )}
       <div className="flex items-center gap-3">
         <LocaleSwitcher className="border-gray-500" />
-        <UserDropdown name={user.name} email={user.email} />
+        {user && <UserDropdown name={user.name} email={user.email} />}
+        {!user && <AuthButtons />}
       </div>
     </header>
   )
