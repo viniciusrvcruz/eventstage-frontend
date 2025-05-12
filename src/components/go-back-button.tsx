@@ -11,7 +11,7 @@ export function GoBackButton() {
   return (
     <button
       type="button"
-      className="flex gap-1 items-center px-3 py-1 rounded-full text-xl cursor-pointer hover:bg-gray-500"
+      className="flex gap-1 items-center px-3 py-1 rounded-full text-xl cursor-pointer mb-5 sm:mb-0 hover:bg-gray-500"
       onClick={() => router.back()}
     >
       <ArrowLeft />

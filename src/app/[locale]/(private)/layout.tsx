@@ -1,3 +1,5 @@
+import { getAuthUser } from '@/services/auth-service'
+import { redirect } from 'next/navigation'
 import { Header } from './(components)/header'
 
 export default async function PrivateLayout({
@@ -5,9 +7,19 @@ export default async function PrivateLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  let authUser = null
+
+  try {
+    const response = await getAuthUser()
+
+    authUser = response.user
+  } catch {
+    redirect('/logout')
+  }
+
   return (
     <div className="max-w-[1240px] w-full px-5 py-0">
-      <Header />
+      <Header authUser={authUser} />
       <main>{children}</main>
     </div>
   )

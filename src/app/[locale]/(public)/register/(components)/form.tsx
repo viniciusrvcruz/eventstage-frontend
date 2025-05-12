@@ -42,7 +42,7 @@ export function RegisterForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-gray-700 border border-gray-600 rounded-2xl p-4 space-y-2 sm:p-6 sm:w-[440px]"
+      className="bg-gray-700 border border-gray-600 rounded-2xl p-4 space-y-2 mb-10 sm:p-6 sm:w-[440px]"
     >
       <div className="space-y-2">
         <label htmlFor="name">{t('name_label')}</label>

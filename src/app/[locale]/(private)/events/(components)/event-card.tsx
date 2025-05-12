@@ -7,6 +7,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { Link } from '@/i18n/navigation'
 import type { EventSchema } from '@/types/event'
 import { Ellipsis } from 'lucide-react'
 import { useTranslations } from 'next-intl'
@@ -22,8 +23,16 @@ export function EventCard({ event, userId, handleDelete }: EventCardProps) {
   const t = useTranslations('private.events')
   const router = useRouter()
 
+  const eventLinkHref = event.subscription
+    ? `/events/${event.id}/details`
+    : `/events/${event.id}/subscribe`
+
   return (
-    <div className="flex flex-col bg-gray-700 border border-gray-600 rounded-2xl p-4 min-w-[300px]">
+    <Link
+      href={eventLinkHref}
+      type="button"
+      className="flex flex-col bg-gray-700 border border-gray-600 rounded-2xl p-4 min-w-[300px]"
+    >
       <div className="flex justify-between">
         <div className="flex flex-col flex-grow justify-center truncate">
           <span className="font-heading text-blue font-bold text-lg truncate md:text-xl">
@@ -42,11 +51,19 @@ export function EventCard({ event, userId, handleDelete }: EventCardProps) {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem
-                onClick={() => router.push(`events/${event.id}/edit`)}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  router.push(`events/${event.id}/edit`)
+                }}
               >
                 {t('edit')}
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => handleDelete(event)}>
+              <DropdownMenuItem
+                onClick={(e) => {
+                  e.stopPropagation()
+                  handleDelete(event)
+                }}
+              >
                 {t('delete')}
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -56,6 +73,6 @@ export function EventCard({ event, userId, handleDelete }: EventCardProps) {
       <p className="text-gray-300 leading-relaxed text-sm truncate md:text-base">
         {event.description}
       </p>
-    </div>
+    </Link>
   )
 }
