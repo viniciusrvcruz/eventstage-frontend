@@ -2,21 +2,30 @@
 
 import { IconButton } from '@/components/icon-button'
 import { InputField, InputIcon, InputRoot } from '@/components/input'
+import { env } from '@/env'
 import { Copy, Link } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
 interface InviteLinkInputProps {
   eventId: string
-  userId: string
+  subscriptionId: string | null
 }
 
-export function InviteLinkInput({ eventId, userId }: InviteLinkInputProps) {
+export function InviteLinkInput({
+  eventId,
+  subscriptionId,
+}: InviteLinkInputProps) {
   const [inviteLink, setInviteLink] = useState('')
 
+  const baseApiUrl = env.NEXT_PUBLIC_API_URL
+
   useEffect(() => {
-    const origin = window.location.origin
-    setInviteLink(`${origin}/events/${eventId}/subscribe?referrer=${userId}`)
-  }, [eventId, userId])
+    const link = subscriptionId
+      ? `${baseApiUrl}/events/${eventId}/subscription/${subscriptionId}`
+      : `${origin}/events/${eventId}/subscribe`
+
+    setInviteLink(link)
+  }, [eventId, subscriptionId, baseApiUrl])
 
   function copyInviteLink() {
     navigator.clipboard.writeText(inviteLink)

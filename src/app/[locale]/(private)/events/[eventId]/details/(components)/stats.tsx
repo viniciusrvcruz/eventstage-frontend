@@ -1,19 +1,19 @@
 import {
-  getSubscriberInviteClicks,
-  getSubscriberInvitesCount,
-  getSubscriberRankingPosition,
-} from '@/lib/api-request'
+  getSubscriptionInviteClicks,
+  getSubscriptionInvitesCount,
+  getSubscriptionRankingPosition,
+} from '@/services/event-subscription-service'
 import { BadgeCheck, Medal, MousePointerClick } from 'lucide-react'
 
 interface StatsProps {
-  subscriberId: string
+  eventId: string
 }
 
-export async function Stats({ subscriberId }: StatsProps) {
-  const { count: accessCount } = await getSubscriberInviteClicks(subscriberId)
-  const { count: invitesCount } = await getSubscriberInvitesCount(subscriberId)
+export async function Stats({ eventId }: StatsProps) {
+  const { count: accessCount } = await getSubscriptionInviteClicks(eventId)
+  const { count: invitesCount } = await getSubscriptionInvitesCount(eventId)
   const { position: rankingPosition } =
-    await getSubscriberRankingPosition(subscriberId)
+    await getSubscriptionRankingPosition(eventId)
 
   return (
     <div className="grid gap-3 md:grid-cols-3">
