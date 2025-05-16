@@ -9,3 +9,17 @@ export const subscriptionSchema = z.object({
 })
 
 export type SubscriptionSchema = z.infer<typeof subscriptionSchema>
+
+const subscriptionRankingSchema = z.object({
+  ranking: z.array(
+    z.object({
+      id: z.string().uuid(),
+      name: z.string(),
+      score: z.number(),
+    })
+  ),
+})
+
+export type SubscriptionRankingSchema = z.infer<
+  typeof subscriptionRankingSchema
+>

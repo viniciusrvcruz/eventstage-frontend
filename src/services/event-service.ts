@@ -81,3 +81,7 @@ export async function getEvents({
 export async function deleteEvent(eventId: string) {
   return apiRequest('DELETE', `events/${eventId}`)
 }
+
+export async function getEventSubscription(eventId: string) {
+  return apiRequest('GET', `events/${eventId}/subscription`)
+}
