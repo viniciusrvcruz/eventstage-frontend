@@ -4,12 +4,14 @@ import {
   getSubscriptionRankingPosition,
 } from '@/services/event-subscription-service'
 import { BadgeCheck, Medal, MousePointerClick } from 'lucide-react'
+import { getTranslations } from 'next-intl/server'
 
 interface StatsProps {
   eventId: string
 }
 
 export async function Stats({ eventId }: StatsProps) {
+  const t = await getTranslations('private.stats')
   const { count: accessCount } = await getSubscriptionInviteClicks(eventId)
   const { count: invitesCount } = await getSubscriptionInvitesCount(eventId)
   const { position: rankingPosition } =
@@ -22,9 +24,8 @@ export async function Stats({ eventId }: StatsProps) {
           {accessCount}
         </span>
         <span className="text-sm text-gray-300 leading-none text-center">
-          Acessos ao link
+          {t('link_clicks')}
         </span>
-
         <MousePointerClick className="size-5 text-purple absolute top-3 left-3" />
       </div>
       <div className="relative bg-gray-700 border border-gray-600 px-4 py-7 flex flex-col items-center justify-center gap-1 rounded-xl">
@@ -32,7 +33,7 @@ export async function Stats({ eventId }: StatsProps) {
           {invitesCount}
         </span>
         <span className="text-sm text-gray-300 leading-none text-center">
-          Incrições feitas
+          {t('subscriptions')}
         </span>
 
         <BadgeCheck className="size-5 text-purple absolute top-3 left-3" />
@@ -42,7 +43,7 @@ export async function Stats({ eventId }: StatsProps) {
           {rankingPosition ? `${rankingPosition}°` : '-'}
         </span>
         <span className="text-sm text-gray-300 leading-none text-center">
-          Posição no ranking
+          {t('ranking_position')}
         </span>
 
         <Medal className="size-5 text-purple absolute top-3 left-3" />

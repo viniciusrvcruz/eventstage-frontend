@@ -26,3 +26,7 @@ export async function getSubscriptionInvitesCount(eventId: string) {
 export async function getSubscriptionRankingPosition(eventId: string) {
   return apiRequest('GET', `events/${eventId}/subscriptions/ranking/position`)
 }
+
+export async function getSubscriptionsRanking(eventId: string) {
+  return apiRequest('GET', `events/${eventId}/subscriptions/ranking`)
+}

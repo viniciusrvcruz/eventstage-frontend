@@ -21,7 +21,7 @@ export function InviteLinkInput({
 
   useEffect(() => {
     const link = subscriptionId
-      ? `${baseApiUrl}/events/${eventId}/subscription/${subscriptionId}`
+      ? `${baseApiUrl}/events/${eventId}/subscriptions/${subscriptionId}/invite`
       : `${origin}/events/${eventId}/subscribe`
 
     setInviteLink(link)

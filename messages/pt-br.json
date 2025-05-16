@@ -68,7 +68,14 @@
       "access_instruction": "Para entrar no evento, clique no botão abaixo:",
       "access_event_button": "Acessar evento",
       "invite_and_rank": "Indique e suba no ranking",
-      "invite_instruction": "Convide mais pessoas para o evento! É só compartilhar o link abaixo e acompanhar as inscrições:"
+      "invite_event": "Compartilhe o evento",
+      "invite_instruction": "Convide mais pessoas para o evento! É só compartilhar o link abaixo e acompanhar as inscrições:",
+      "ranking": "Ranking de indicações"
+    },
+    "stats": {
+      "link_clicks": "Acessos ao link",
+      "subscriptions": "Inscrições feitas",
+      "ranking_position": "Posição no ranking"
     }
   },
   "validations": {
