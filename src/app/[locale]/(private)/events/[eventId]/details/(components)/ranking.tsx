@@ -1,16 +1,24 @@
-import { getRanking } from '@/lib/api-request'
+import medalCooper from '@/assets/medal-cooper.svg'
+import medalGold from '@/assets/medal-gold.svg'
+import medalSilver from '@/assets/medal-silver.svg'
+import { getSubscriptionsRanking } from '@/services/event-subscription-service'
+import type { SubscriptionRankingSchema } from '@/types/subscription'
+import { getTranslations } from 'next-intl/server'
 import Image from 'next/image'
-import medalCooper from '../../../assets/medal-cooper.svg'
-import medalGold from '../../../assets/medal-gold.svg'
-import medalSilver from '../../../assets/medal-silver.svg'
 
-export async function Ranking() {
-  const { ranking } = await getRanking()
+interface RankingProps {
+  eventId: string
+}
+
+export async function Ranking({ eventId }: RankingProps) {
+  const t = await getTranslations('private.events')
+  const { ranking }: SubscriptionRankingSchema =
+    await getSubscriptionsRanking(eventId)
 
   return (
-    <div className="w-full max-w-[440px] space-y-5">
+    <div className="w-full max-w-[550px] space-y-5">
       <h2 className="text-gray-200 text-xl font-heading font-semibold leading-none">
-        Ranking de indicações
+        {t('ranking')}
       </h2>
 
       <div className="space-y-4">
@@ -23,9 +31,9 @@ export async function Ranking() {
                   key={item.id}
                   className="relative rounded-xl bg-gray-700 border border-gray-600 p-6 flex flex-col justify-center gap-3"
                 >
-                  <span className="text-sm text-gray-300 leading-none">
+                  <span className="text-sm text-gray-300 leading-none pe-15 break-all">
                     <span className="font-semibold">{rankingPosition}°</span> |{' '}
-                    {item.name}
+                    {item.name.substring(0, 46)}
                   </span>
 
                   <span className="font-heading text-2xl font-semibold text-gray-200 leading-none">

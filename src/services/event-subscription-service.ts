@@ -14,3 +14,19 @@ export async function createSubscriptionToEvent(
 ) {
   return apiRequest('POST', `events/${eventId}/subscriptions`, subscription)
 }
+
+export async function getSubscriptionInviteClicks(eventId: string) {
+  return apiRequest('GET', `events/${eventId}/subscriptions/ranking/clicks`)
+}
+
+export async function getSubscriptionInvitesCount(eventId: string) {
+  return apiRequest('GET', `events/${eventId}/subscriptions/ranking/count`)
+}
+
+export async function getSubscriptionRankingPosition(eventId: string) {
+  return apiRequest('GET', `events/${eventId}/subscriptions/ranking/position`)
+}
+
+export async function getSubscriptionsRanking(eventId: string) {
+  return apiRequest('GET', `events/${eventId}/subscriptions/ranking`)
+}
