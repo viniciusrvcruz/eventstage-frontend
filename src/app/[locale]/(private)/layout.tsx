@@ -1,6 +1,6 @@
+import { Header } from '@/components/header'
 import { getAuthUser } from '@/services/auth-service'
 import { redirect } from 'next/navigation'
-import { Header } from './(components)/header'
 
 export default async function PrivateLayout({
   children,

@@ -1,10 +1,10 @@
+import { routing } from '@/i18n/routing'
 import createMiddleware from 'next-intl/middleware'
 import {
   type MiddlewareConfig,
   type NextRequest,
   NextResponse,
 } from 'next/server'
-import { routing } from './i18n/routing'
 
 const publicRoutes = [
   { path: '/login', whenAuthenticated: 'redirect' },
