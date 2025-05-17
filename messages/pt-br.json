@@ -26,7 +26,10 @@
       "subscritption_success_login": "Inscrição realizada com sucesso, faça login para acessar o evento"
     },
     "not_found": {
-      "title": "O recurso solicitado não foi encontrado"
+      "code": "404",
+      "title": "Página não encontrada",
+      "description": "Desculpe, não conseguimos encontrar a página que você está procurando.",
+      "button": "Voltar para o início"
     }
   },
   "private": {
