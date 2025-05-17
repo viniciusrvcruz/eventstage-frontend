@@ -6,8 +6,8 @@ import { getTranslations } from 'next-intl/server'
 import { cookies } from 'next/headers'
 import Image from 'next/image'
 import Link from 'next/link'
-import AuthButtons from './auth-buttons'
-import { UserDropdown } from './user-dropdown'
+import AuthButtons from '../app/[locale]/(private)/(components)/auth-buttons'
+import { UserDropdown } from '../app/[locale]/(private)/(components)/user-dropdown'
 
 interface HeaderProps {
   authUser?: UserSchema
