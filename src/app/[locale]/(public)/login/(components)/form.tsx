@@ -84,8 +84,16 @@ export function LoginForm() {
         )}
       </div>
       <Button type="submit" className="mt-5" disabled={pendingRequest}>
-        {t('enter_button')}
-        <ArrowRight />
+        {pendingRequest ? (
+          <div className="group flex items-center justify-center w-full">
+            <div className="animate-spin h-8 w-8 border-t-4 border-b-4 rounded-full border-gray-400 group-hover:border-gray-900" />
+          </div>
+        ) : (
+          <>
+            {t('enter_button')}
+            <ArrowRight />
+          </>
+        )}
       </Button>
       <p className="text-sm mt-5">
         {t('no_account')}
