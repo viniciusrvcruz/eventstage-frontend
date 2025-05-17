@@ -11,6 +11,7 @@ import {
 import { removeTokenFromCookies } from '@/utils/helper'
 import { User } from 'lucide-react'
 import { redirect } from 'next/navigation'
+import { useState } from 'react'
 import { useTranslations } from 'use-intl'
 
 interface UserDropdownProps {
@@ -20,6 +21,12 @@ interface UserDropdownProps {
 
 export function UserDropdown({ name, email }: UserDropdownProps) {
   const t = useTranslations('components.user_dropdown')
+  const [open, setOpen] = useState(false)
+
+  function handleSupportClick() {
+    setOpen(false)
+    redirect('/support')
+  }
 
   function handleLogout() {
     removeTokenFromCookies()
@@ -27,7 +34,7 @@ export function UserDropdown({ name, email }: UserDropdownProps) {
   }
 
   return (
-    <DropdownMenu>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger className="p-1.5 rounded-lg border border-gray-500 cursor-pointer focus:outline-none">
         <User />
       </DropdownMenuTrigger>
@@ -37,6 +44,9 @@ export function UserDropdown({ name, email }: UserDropdownProps) {
           <small>{email}</small>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={handleSupportClick}>
+          {t('support_btn')}
+        </DropdownMenuItem>
         <DropdownMenuItem onClick={handleLogout}>
           {t('logout_btn')}
         </DropdownMenuItem>
