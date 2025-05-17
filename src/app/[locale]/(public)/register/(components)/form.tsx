@@ -35,7 +35,16 @@ export function RegisterForm() {
       .then(async () => {
         router.push('/login')
       })
-      .catch(() => alertToast(tValidations('register_error'), 'error'))
+      .catch((e) => {
+        if (e?.message === 'user_already_exists_with_this_email') {
+          alertToast(
+            tValidations('user_already_exists_with_this_email'),
+            'warning'
+          )
+        } else {
+          alertToast(tValidations('register_error'), 'error')
+        }
+      })
       .finally(() => setPendingRequest(false))
   }
 
@@ -125,8 +134,16 @@ export function RegisterForm() {
       </div>
 
       <Button type="submit" className="mt-5" disabled={pendingRequest}>
-        {t('register_button')}
-        <ArrowRight />
+        {pendingRequest ? (
+          <div className="group flex items-center justify-center w-full">
+            <div className="animate-spin h-8 w-8 border-t-4 border-b-4 rounded-full border-gray-400 group-hover:border-gray-900" />
+          </div>
+        ) : (
+          <>
+            {t('register_button')}
+            <ArrowRight />
+          </>
+        )}
       </Button>
       <p className="text-sm mt-5">
         {t('already_have_account')}
