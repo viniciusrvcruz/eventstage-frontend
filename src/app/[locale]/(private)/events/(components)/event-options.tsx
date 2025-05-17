@@ -1,8 +1,8 @@
 'use client'
 
-import { LinkButton } from '@/app/[locale]/(private)/events/(components)/link-button'
 import { Button } from '@/components/button'
 import { InputField, InputIcon, InputRoot } from '@/components/input'
+import { LinkButton } from '@/components/link-button'
 import { cn } from '@/lib/utils'
 import { ArrowLeft, Plus, Search, X } from 'lucide-react'
 import { useTranslations } from 'next-intl'

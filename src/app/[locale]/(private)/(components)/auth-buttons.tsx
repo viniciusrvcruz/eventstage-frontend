@@ -1,8 +1,8 @@
 'use client'
 
+import { LinkButton } from '@/components/link-button'
 import { usePathname } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
-import { LinkButton } from '../events/(components)/link-button'
 
 const AuthButtons = () => {
   const t = useTranslations('public.authentication')
