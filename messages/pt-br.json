@@ -70,7 +70,8 @@
       "invite_and_rank": "Indique e suba no ranking",
       "invite_event": "Compartilhe o evento",
       "invite_instruction": "Convide mais pessoas para o evento! É só compartilhar o link abaixo e acompanhar as inscrições:",
-      "ranking": "Ranking de indicações"
+      "ranking": "Ranking de indicações",
+      "no_events": "Nenhum evento foi encontrado"
     },
     "stats": {
       "link_clicks": "Acessos ao link",
@@ -93,6 +94,7 @@
   },
   "components": {
     "user_dropdown": {
+      "support_btn" : "Suporte",
       "logout_btn": "Sair"
     },
     "go_back": "Voltar"

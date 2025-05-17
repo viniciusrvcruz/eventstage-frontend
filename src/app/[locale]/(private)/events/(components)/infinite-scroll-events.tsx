@@ -2,6 +2,7 @@
 
 import { getEvents } from '@/services/event-service'
 import type { EventSchema } from '@/types/event'
+import { useTranslations } from 'next-intl'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { DeleteEventDialog } from './delete-event-dialog'
@@ -20,6 +21,7 @@ export default function InfiniteScrollEvents({
   filter,
   userId,
 }: IInfiniteScrollEventsProps) {
+  const t = useTranslations('private.events')
   const [events, setEvents] = useState(initialEvents)
   const [page, setPage] = useState(1)
   const [eventToDelete, setEventToDelete] = useState<EventSchema | null>(null)
@@ -62,7 +64,10 @@ export default function InfiniteScrollEvents({
   }
 
   return (
-    <div>
+    <div className="w-full">
+      {events?.length === 0 && (
+        <div className="text-center w-full my-10">{t('no_events')}</div>
+      )}
       <div className="grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mb-5">
         {events?.map((event: EventSchema, index: number) => (
           <EventCard

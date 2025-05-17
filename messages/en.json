@@ -63,7 +63,20 @@
       "deleted_fail": "Could not delete the event",
       "about_the_event": "About the event",
       "event_date": "On {day} of {month} {year} at {hour}:{minute}",
-      "live": "LIVE"
+      "live": "LIVE",
+      "access_event": "Access the event",
+      "access_instruction": "To join the event, click the button below:",
+      "access_event_button": "Access event",
+      "invite_and_rank": "Invite and climb the ranking",
+      "invite_event": "Share the event",
+      "invite_instruction": "Invite more people to the event! Just share the link below and track the subscriptions:",
+      "ranking": "Referral ranking",
+      "no_events": "No events were found"
+    },
+    "stats": {
+      "link_clicks": "Link clicks",
+      "subscriptions": "Subscriptions made",
+      "ranking_position": "Ranking position"
     }
   },
   "validations": {
@@ -81,6 +94,7 @@
   },
   "components": {
     "user_dropdown": {
+      "support_btn": "Support",
       "logout_btn": "Log out"
     },
     "go_back": "Go back"
