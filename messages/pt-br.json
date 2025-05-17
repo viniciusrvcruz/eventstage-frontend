@@ -89,6 +89,7 @@
     "password_mismatch": "As senhas não coincidem",
     "invalid_credentials": "As credenciais são inválidas",
     "register_error": "Erro ao criar conta",
+    "user_already_exists_with_this_email": "Já existe uma conta associada a este e-mail",
     "required": "Campo obrigatório",
     "min_chars": "Mínimo de 2 caracteres",
     "invalid_date": "Data inválida",
