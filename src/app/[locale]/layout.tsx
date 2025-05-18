@@ -8,7 +8,7 @@ import { notFound } from 'next/navigation'
 import { ToastContainer } from 'react-toastify'
 
 export const metadata: Metadata = {
-  title: 'devstage',
+  title: 'eventstage',
 }
 
 const oxanium = Oxanium({
