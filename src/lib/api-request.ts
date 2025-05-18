@@ -39,6 +39,7 @@ export async function apiRequest(
   } catch {}
 
   if (!response.ok) {
+    console.error('API error:', responseBody)
     throw new APIError(responseBody?.status || 500, responseBody?.error)
   }
 
