@@ -47,7 +47,7 @@ export async function Header({ authUser }: HeaderProps) {
       <Link href="/events">
         <Image
           src={logo}
-          alt="devstage"
+          alt="eventstage"
           width={108.5}
           height={30}
           priority={true}
