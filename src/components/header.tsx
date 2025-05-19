@@ -1,11 +1,11 @@
 import logo from '@/assets/logo.svg'
 import LocaleSwitcher from '@/components/locale-switcher'
+import { Link } from '@/i18n/navigation'
 import { getAuthUser } from '@/services/auth-service'
 import type { UserSchema } from '@/types/user'
 import { getTranslations } from 'next-intl/server'
 import { cookies } from 'next/headers'
 import Image from 'next/image'
-import Link from 'next/link'
 import AuthButtons from '../app/[locale]/(private)/(components)/auth-buttons'
 import { UserDropdown } from '../app/[locale]/(private)/(components)/user-dropdown'
 
@@ -44,7 +44,7 @@ export async function Header({ authUser }: HeaderProps) {
 
   return (
     <header className="flex items-center justify-between bg-gray-700 border border-gray-600 rounded-2xl px-5 py-3 my-10 w-full max-w-[1240px]">
-      <Link href="/events">
+      <Link href={user ? '/events' : '/'}>
         <Image
           src={logo}
           alt="eventstage"

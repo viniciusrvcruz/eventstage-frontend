@@ -16,12 +16,19 @@ const REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE = '/login'
 
 const intlMiddleware = createMiddleware(routing)
 
+const LOCALES = routing.locales
+
+function isRootOrLocalizedRoot(pathname: string) {
+  if (pathname === '/') return true
+  return LOCALES.some((locale) => pathname === `/${locale}`)
+}
+
 export function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname
   const publicRoute = publicRoutes.find((route) => path.includes(route.path))
   const authToken = request.cookies.get('token')
 
-  if (!authToken && publicRoute) {
+  if ((!authToken && publicRoute) || isRootOrLocalizedRoot(path)) {
     return intlMiddleware(request)
   }
 

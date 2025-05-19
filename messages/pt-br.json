@@ -1,5 +1,75 @@
 {
   "public": {
+    "landing_page": {
+      "brand": "Eventstage",
+      "nav": {
+        "features": "Recursos",
+        "how_it_works": "Como Funciona",
+        "create_account": "Criar conta",
+        "login": "Entrar"
+      },
+      "hero": {
+        "title": "Participe e crie eventos com facilidade",
+        "description": "Nossa plataforma permite que você crie, convide amigos e participe de eventos gratuitamente. Comece agora e faça parte da comunidade.",
+        "get_started": "Começar agora",
+        "how_it_works": "Como funciona"
+      },
+      "features_section": {
+        "title": "Recursos",
+        "description": "Nossa plataforma oferece tudo o que você precisa para gerenciar e participar de eventos com facilidade.",
+        "create_events": {
+          "title": "Crie Eventos",
+          "description": "Crie eventos personalizados com descrições detalhadas, datas, url e muito mais."
+        },
+        "find_events": {
+          "title": "Encontre Eventos",
+          "description": "Pesquise e filtre eventos por categorias para encontrar o que você procura."
+        },
+        "invite_friends": {
+          "title": "Convide Amigos",
+          "description": "Convide amigos para seus eventos e acompanhe quem se inscreveu."
+        },
+        "ranking": {
+          "title": "Ranking de Convites",
+          "description": "Acompanhe quem convidou mais pessoas e ganhe reconhecimento na comunidade através do nosso sistema de ranking."
+        },
+        "free": {
+          "title": "Totalmente Gratuito",
+          "description": "Crie e participe de eventos totalmente grátis, sem custos escondidos ou assinaturas."
+        }
+      },
+      "how_it_works_section": {
+        "title": "Como Funciona",
+        "description": "Comece a usar nossa plataforma em poucos passos simples",
+        "steps": {
+          "step1": {
+            "title": "Crie sua conta",
+            "description": "Registre-se em nossa plataforma de forma rápida e segura para começar a explorar."
+          },
+          "step2": {
+            "title": "Crie ou Participe",
+            "description": "Crie seu próprio evento ou encontre eventos criados por outros usuários."
+          },
+          "step3": {
+            "title": "Compartilhe e Convide",
+            "description": "Convide seus amigos para os eventos e aumente sua posição no ranking."
+          }
+        }
+      },
+      "cta": {
+        "title": "Pronto para começar?",
+        "description": "Crie sua conta gratuitamente e comece a organizar seus eventos hoje mesmo. Não perca tempo!",
+        "create_account": "Criar conta grátis"
+      },
+      "footer": {
+        "description": "Plataforma para criar e participar de eventos gratuitamente.",
+        "links_title": "Links",
+        "resources": "Recursos",
+        "how_it_works": "Como Funciona",
+        "copyright": "Eventstage. Todos os direitos reservados.",
+        "developed_by": "Desenvolvido por Vinicius Cruz"
+      }
+    },
     "authentication": {
       "email_label": "Email",
       "password_label": "Senha",
