@@ -19,7 +19,10 @@ const AuthButtons = () => {
         </LinkButton>
       )}
       {!isRegisterPage && isLoginPage && (
-        <LinkButton href="/register" className="h-auto px-5 py-2">
+        <LinkButton
+          href="/register"
+          className="h-auto text-xs px-2 py-3 md:text-sm md:px-5 md:py-2"
+        >
           {t('create_account')}
         </LinkButton>
       )}
