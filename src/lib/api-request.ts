@@ -30,8 +30,6 @@ export async function apiRequest(
     options.body = JSON.stringify(data)
   }
 
-  console.warn(`${baseURL}/${url}`)
-
   const response = await fetch(`${baseURL}/${url}`, options)
 
   let responseBody = null
