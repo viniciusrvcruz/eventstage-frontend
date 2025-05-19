@@ -108,7 +108,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature 1 */}
-            <div className="card-gradient rounded-xl p-6 border border-gray-700/50 hover:border-blue/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue/5">
+            <div className="card-gradient rounded-xl p-6 border border-gray-600 hover:border-blue/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue/5">
               <div className="w-12 h-12 bg-blue/20 rounded-lg flex items-center justify-center mb-4">
                 <Calendar className="text-blue" size={24} />
               </div>
@@ -121,7 +121,7 @@ export default function LandingPage() {
             </div>
 
             {/* Feature 2 */}
-            <div className="card-gradient rounded-xl p-6 border border-gray-700/50 hover:border-purple/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple/5">
+            <div className="card-gradient rounded-xl p-6 border border-gray-600 hover:border-purple/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple/5">
               <div className="w-12 h-12 bg-purple/20 rounded-lg flex items-center justify-center mb-4">
                 <Search className="text-purple" size={24} />
               </div>
@@ -134,7 +134,7 @@ export default function LandingPage() {
             </div>
 
             {/* Feature 3 */}
-            <div className="card-gradient rounded-xl p-6 border border-gray-700/50 hover:border-orange-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/5">
+            <div className="card-gradient rounded-xl p-6 border border-gray-600 hover:border-orange-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/5">
               <div className="w-12 h-12 bg-orange-500/20 rounded-lg flex items-center justify-center mb-4">
                 <Plus className="text-orange-500" size={24} />
               </div>
@@ -149,7 +149,7 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
             {/* Feature 4 */}
-            <div className="card-gradient rounded-xl p-6 border border-gray-700/50 hover:border-blue/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue/5">
+            <div className="card-gradient rounded-xl p-6 border border-gray-600 hover:border-blue/30 transition-all duration-300 hover:shadow-lg hover:shadow-blue/5">
               <div className="w-12 h-12 bg-blue/20 rounded-lg flex items-center justify-center mb-4">
                 <Calendar className="text-blue" size={24} />
               </div>
@@ -162,7 +162,7 @@ export default function LandingPage() {
             </div>
 
             {/* Feature 5 */}
-            <div className="card-gradient rounded-xl p-6 border border-gray-700/50 hover:border-purple/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple/5">
+            <div className="card-gradient rounded-xl p-6 border border-gray-600 hover:border-purple/30 transition-all duration-300 hover:shadow-lg hover:shadow-purple/5">
               <div className="w-12 h-12 bg-purple/20 rounded-lg flex items-center justify-center mb-4">
                 <Calendar className="text-purple" size={24} />
               </div>
@@ -179,7 +179,7 @@ export default function LandingPage() {
 
       {/* How It Works */}
       <section id="how-it-works" className="py-20 px-8 relative">
-        <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-blue/10 rounded-full filter blur-[100px] -z-10" />
+        <div className="absolute top-1/2 left-0 md:left-1/4 w-80 h-96 bg-blue/10 rounded-full filter blur-[100px] -z-10" />
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block header-underline">
@@ -193,7 +193,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Step 1 */}
             <div className="relative">
-              <div className="card-gradient rounded-xl p-6 border border-gray-700/50">
+              <div className="card-gradient rounded-xl p-6 border border-gray-600">
                 <div className="absolute -top-4 -left-4 w-10 h-10 bg-blue text-white rounded-lg flex items-center justify-center font-bold text-lg">
                   1
                 </div>
@@ -224,7 +224,7 @@ export default function LandingPage() {
 
             {/* Step 2 */}
             <div className="relative">
-              <div className="card-gradient rounded-xl p-6 border border-gray-700/50">
+              <div className="card-gradient rounded-xl p-6 border border-gray-600">
                 <div className="absolute -top-4 -left-4 w-10 h-10 bg-purple text-white rounded-lg flex items-center justify-center font-bold text-lg">
                   2
                 </div>
@@ -255,7 +255,7 @@ export default function LandingPage() {
 
             {/* Step 3 */}
             <div className="relative">
-              <div className="card-gradient rounded-xl p-6 border border-gray-700/50">
+              <div className="card-gradient rounded-xl p-6 border border-gray-600">
                 <div className="absolute -top-4 -left-4 w-10 h-10 bg-orange-500 text-white rounded-lg flex items-center justify-center font-bold text-lg">
                   3
                 </div>
@@ -276,7 +276,7 @@ export default function LandingPage() {
         <div className="absolute top-0 right-0 w-96 h-96 rounded-full filter blur-[100px] -z-10" />
         <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full filter blur-[100px] -z-10" />
 
-        <div className="max-w-5xl mx-auto card-gradient rounded-xl p-10 border border-gray-700/50 relative z-10">
+        <div className="max-w-5xl mx-auto card-gradient rounded-xl p-10 border border-gray-600 relative z-10">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {t('cta.title')}
