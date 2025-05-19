@@ -73,7 +73,7 @@ export function EventForm({ event }: EventFormProps) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-gray-700 border border-gray-600 rounded-2xl p-4 mb-20 space-y-2 sm:p-6 sm:w-[440px]"
+      className="bg-gray-700 border border-gray-600 rounded-2xl p-4 mb-20 space-y-2 w-full sm:p-6 sm:w-[440px]"
     >
       <div>
         <label htmlFor="form_title">{t('form_title')}</label>
