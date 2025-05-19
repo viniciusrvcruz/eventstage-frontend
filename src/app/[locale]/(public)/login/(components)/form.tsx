@@ -10,12 +10,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRight, User } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 export function LoginForm() {
-  const router = useRouter()
   const t = useTranslations('public.authentication')
   const tValidations = useTranslations('validations')
 
@@ -31,14 +30,20 @@ export function LoginForm() {
 
   async function onSubmit(payload: ILoginPayload) {
     setPendingRequest(true)
+    let success = true
 
     login(payload)
       .then(async ({ token }) => {
         await setCookie(token)
-        router.push('/events')
       })
-      .catch(() => alertToast(tValidations('invalid_credentials'), 'error'))
-      .finally(() => setPendingRequest(false))
+      .catch(() => {
+        success = false
+        alertToast(tValidations('invalid_credentials'), 'error')
+      })
+      .finally(() => {
+        setPendingRequest(false)
+        if (success) redirect('/events')
+      })
   }
 
   return (
