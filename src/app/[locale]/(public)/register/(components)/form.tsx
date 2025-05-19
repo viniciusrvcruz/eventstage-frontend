@@ -10,12 +10,11 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { ArrowRight, User } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 export function RegisterForm() {
-  const router = useRouter()
   const t = useTranslations('public.authentication')
   const tValidations = useTranslations('validations')
 
@@ -32,11 +31,12 @@ export function RegisterForm() {
   async function onSubmit(payload: IRegisterPayload) {
     setPendingRequest(true)
 
+    let success = true
+
     registerUser(payload)
-      .then(async () => {
-        router.push('/login')
-      })
       .catch((e) => {
+        success = false
+
         if (e?.message === 'user_already_exists_with_this_email') {
           alertToast(
             tValidations('user_already_exists_with_this_email'),
@@ -46,7 +46,10 @@ export function RegisterForm() {
           alertToast(tValidations('register_error'), 'error')
         }
       })
-      .finally(() => setPendingRequest(false))
+      .finally(() => {
+        setPendingRequest(false)
+        if (success) redirect('/login')
+      })
   }
 
   return (

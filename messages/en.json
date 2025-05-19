@@ -1,5 +1,75 @@
 {
   "public": {
+    "landing_page": {
+      "brand": "Eventstage",
+      "nav": {
+        "features": "Features",
+        "how_it_works": "How It Works",
+        "create_account": "Sign Up",
+        "login": "Login"
+      },
+      "hero": {
+        "title": "Join and create events with ease",
+        "description": "Our platform allows you to create, invite friends, and join events for free. Get started now and become part of the community.",
+        "get_started": "Get Started",
+        "how_it_works": "How it works"
+      },
+      "features_section": {
+        "title": "Features",
+        "description": "Our platform offers everything you need to manage and participate in events easily.",
+        "create_events": {
+          "title": "Create Events",
+          "description": "Create custom events with detailed descriptions, dates, URL, and more."
+        },
+        "find_events": {
+          "title": "Find Events",
+          "description": "Search and filter events by categories to find what you're looking for."
+        },
+        "invite_friends": {
+          "title": "Invite Friends",
+          "description": "Invite friends to your events and track who has signed up."
+        },
+        "ranking": {
+          "title": "Invite Ranking",
+          "description": "See who invited the most people and earn recognition through our ranking system."
+        },
+        "free": {
+          "title": "Totally Free",
+          "description": "Create and join events completely free, with no hidden costs or subscriptions."
+        }
+      },
+      "how_it_works_section": {
+        "title": "How It Works",
+        "description": "Start using our platform in a few simple steps",
+        "steps": {
+          "step1": {
+            "title": "Create your account",
+            "description": "Register quickly and securely to start exploring."
+          },
+          "step2": {
+            "title": "Create or Join",
+            "description": "Create your own event or join events created by other users."
+          },
+          "step3": {
+            "title": "Share and Invite",
+            "description": "Invite your friends to events and increase your ranking position."
+          }
+        }
+      },
+      "cta": {
+        "title": "Ready to get started?",
+        "description": "Create your account for free and start organizing your events today. Don't waste time!",
+        "create_account": "Create free account"
+      },
+      "footer": {
+        "description": "A platform to create and join events for free.",
+        "links_title": "Links",
+        "resources": "Resources",
+        "how_it_works": "How it works",
+        "copyright": "Eventstage. All rights reserved.",
+        "developed_by": "Developed by Vinicius Cruz"
+      }
+    },
     "authentication": {
       "email_label": "Email",
       "password_label": "Password",
