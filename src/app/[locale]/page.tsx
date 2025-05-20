@@ -289,7 +289,7 @@ export default function LandingPage() {
           <div className="flex justify-center gap-4">
             <Link
               href="/register"
-              className="flex justify-center bg-blue hover:bg-blue/90 text-white rounded-xl font-medium px-8 py-2 text-lg w-[250px]"
+              className="flex justify-center bg-blue hover:bg-blue/90 text-white text-nowrap rounded-xl font-medium px-8 py-2 text-lg"
             >
               {t('cta.create_account')}
             </Link>
