@@ -1,3 +1,4 @@
+import logo from '@/assets/logo.svg'
 import { LinkButton } from '@/components/link-button'
 import LocaleSwitcher from '@/components/locale-switcher'
 import { Link } from '@/i18n/navigation'
@@ -12,6 +13,7 @@ import {
   UserPlus,
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 
 export default function LandingPage() {
   const t = useTranslations('public.landing_page')
@@ -21,11 +23,13 @@ export default function LandingPage() {
       {/* Navigation Bar */}
       <nav className="px-8 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center">
-            <span className="text-blue font-heading font-bold text-xl">
-              {t('brand')}
-            </span>
-          </div>
+          <Image
+            src={logo}
+            alt="eventstage"
+            width={108.5}
+            height={30}
+            priority={true}
+          />
           <div className="hidden lg:flex items-center gap-6">
             <a
               href="#features"
@@ -301,9 +305,13 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <span className="text-blue font-heading font-bold text-xl">
-                Eventstage
-              </span>
+              <Image
+                src={logo}
+                alt="eventstage"
+                width={108.5}
+                height={30}
+                priority={true}
+              />
               <p className="text-gray-400 mt-4">{t('footer.description')}</p>
             </div>
 
