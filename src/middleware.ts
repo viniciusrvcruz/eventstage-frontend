@@ -53,6 +53,6 @@ export function middleware(request: NextRequest) {
 
 export const config: MiddlewareConfig = {
   matcher: [
-    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|background.png|trpc|_next|_vercel).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|background.png|og-image.png|trpc|_next|_vercel).*)',
   ],
 }
