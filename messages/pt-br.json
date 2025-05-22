@@ -1,4 +1,21 @@
 {
+  "metadata": {
+    "title": "Eventstage – Sua Plataforma de Eventos",
+    "description": "Descubra, participe e gerencie eventos incríveis com o Eventstage. Acompanhe agendas, compre ingressos e conecte-se com organizadores e participantes.",
+    "keywords": [
+      "eventos",
+      "plataforma de eventos",
+      "ingressos",
+      "agenda de eventos",
+      "organização de eventos"
+    ],
+    "ogTitle": "Eventstage – Sua Plataforma de Eventos",
+    "ogDescription": "Descubra, participe e gerencie eventos incríveis com o Eventstage.",
+    "ogAlt": "Banner do Eventstage",
+    "ogLocale": "pt_BR",
+    "twitterTitle": "Eventstage – Sua Plataforma de Eventos",
+    "twitterDescription": "Descubra, participe e gerencie eventos incríveis com o Eventstage."
+  },
   "public": {
     "landing_page": {
       "brand": "Eventstage",

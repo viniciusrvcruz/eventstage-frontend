@@ -1,4 +1,21 @@
 {
+  "metadata": {
+    "title": "Eventstage – Your Event Platform",
+    "description": "Discover, join, and manage amazing events with Eventstage. Track schedules, buy tickets, and connect with organizers and attendees.",
+    "keywords": [
+      "events",
+      "event platform",
+      "tickets",
+      "event schedule",
+      "event organization"
+    ],
+    "ogTitle": "Eventstage – Your Event Platform",
+    "ogDescription": "Discover, join, and manage amazing events with Eventstage.",
+    "ogAlt": "Eventstage banner",
+    "ogLocale": "en_US",
+    "twitterTitle": "Eventstage – Your Event Platform",
+    "twitterDescription": "Discover, join, and manage amazing events with Eventstage."
+  },
   "public": {
     "landing_page": {
       "brand": "Eventstage",

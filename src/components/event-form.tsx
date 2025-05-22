@@ -84,6 +84,7 @@ export function EventForm({ event }: EventFormProps) {
           <InputField
             id="form_title"
             placeholder={t('form_title')}
+            maxLength={256}
             {...register('title')}
           />
         </InputRoot>
@@ -103,6 +104,7 @@ export function EventForm({ event }: EventFormProps) {
           <InputField
             id="form_subtitle"
             placeholder={t('form_subtitle')}
+            maxLength={256}
             {...register('subtitle')}
           />
         </InputRoot>
@@ -122,6 +124,7 @@ export function EventForm({ event }: EventFormProps) {
           <TextareaField
             id="form_description"
             placeholder={t('form_description')}
+            maxLength={500}
             {...register('description')}
           />
         </TextareaRoot>

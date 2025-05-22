@@ -23,9 +23,10 @@ export function EventCard({ event, userId, handleDelete }: EventCardProps) {
   const t = useTranslations('private.events')
   const router = useRouter()
 
-  const eventLinkHref = event.subscription
-    ? `/events/${event.id}/details`
-    : `/events/${event.id}/subscribe`
+  const eventLinkHref =
+    event.subscription || event.createdBy === userId
+      ? `/events/${event.id}/details`
+      : `/events/${event.id}/subscribe`
 
   return (
     <Link
