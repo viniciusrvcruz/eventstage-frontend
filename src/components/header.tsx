@@ -3,7 +3,7 @@ import LocaleSwitcher from '@/components/locale-switcher'
 import { Link } from '@/i18n/navigation'
 import { getAuthUser } from '@/services/auth-service'
 import type { UserSchema } from '@/types/user'
-import { getLocale, getTranslations } from 'next-intl/server'
+import { getTranslations } from 'next-intl/server'
 import { cookies } from 'next/headers'
 import Image from 'next/image'
 import AuthButtons from '../app/[locale]/(private)/(components)/auth-buttons'
@@ -14,7 +14,6 @@ interface HeaderProps {
 }
 
 export async function Header({ authUser }: HeaderProps) {
-  const locale = await getLocale()
   let user = authUser ? { ...authUser } : null
   const token = (await cookies()).get('token')?.value
 
@@ -29,13 +28,8 @@ export async function Header({ authUser }: HeaderProps) {
   const t = await getTranslations('greeting')
 
   const getGreeting = () => {
-    const timeZone = {
-      en: 'America/New_York',
-      'pt-br': 'America/Sao_Paulo',
-    }
-
     const date = new Date().toLocaleString('en-US', {
-      timeZone: timeZone[locale as 'en' | 'pt-br'],
+      timeZone: 'America/Sao_Paulo',
     })
 
     const hour = new Date(date).getHours()
