@@ -79,7 +79,7 @@ export function SubscriptionForm({ user, eventId }: SubscriptionFormProps) {
       {!user && (
         <div className="space-y-3">
           <div className="space-y-2">
-            <InputRoot>
+            <InputRoot error={!!errors.name}>
               <InputIcon>
                 <User />
               </InputIcon>
@@ -98,7 +98,7 @@ export function SubscriptionForm({ user, eventId }: SubscriptionFormProps) {
           </div>
 
           <div className="space-y-2">
-            <InputRoot>
+            <InputRoot error={!!errors.email}>
               <InputIcon>
                 <Mail />
               </InputIcon>

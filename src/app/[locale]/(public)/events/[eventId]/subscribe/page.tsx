@@ -33,7 +33,7 @@ export default async function EventSubscription(props: EventSubscriptionProps) {
   return (
     <div className="flex flex-col justify-start gap-10 mb-14">
       <div className="flex flex-col gap-8 items-center md:items-start">
-        <h1 className="text-4xl text-center leading-none font-heading font-medium flex flex-col md:text-7xl md:text-left">
+        <h1 className="text-4xl text-center break-all leading-none font-heading font-medium flex flex-col md:text-7xl md:text-left">
           <span className="text-blue">{event.title}</span>
           {event.subtitle}
         </h1>

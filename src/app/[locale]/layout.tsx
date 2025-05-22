@@ -2,55 +2,50 @@ import { env } from '@/env'
 import './globals.css'
 
 import { routing } from '@/i18n/routing'
-import type { Metadata } from 'next'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { Montserrat, Oxanium } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { ToastContainer } from 'react-toastify'
 
-export const metadata: Metadata = {
-  title: 'Eventstage – Sua Plataforma de Eventos',
-  description:
-    'Descubra, participe e gerencie eventos incríveis com o Eventstage. Acompanhe agendas, compre ingressos e conecte-se com organizadores e participantes.',
-  keywords: [
-    'eventos',
-    'plataforma de eventos',
-    'ingressos',
-    'agenda de eventos',
-    'organização de eventos',
-  ],
-  metadataBase: new URL(env.NEXT_PUBLIC_WEB_ADDRESS),
-  openGraph: {
-    title: 'Eventstage – Sua Plataforma de Eventos',
-    description:
-      'Descubra, participe e gerencie eventos incríveis com o Eventstage.',
-    url: env.NEXT_PUBLIC_WEB_ADDRESS,
-    siteName: 'Eventstage',
-    images: [
-      {
-        url: `${env.NEXT_PUBLIC_WEB_ADDRESS}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: 'Banner do Eventstage',
-      },
-    ],
-    locale: 'pt_BR',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Eventstage – Sua Plataforma de Eventos',
-    description:
-      'Descubra, participe e gerencie eventos incríveis com o Eventstage.',
-    images: [`${env.NEXT_PUBLIC_WEB_ADDRESS}/og-image.png`],
-  },
-  icons: {
-    icon: '/favicon.ico',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+export async function generateMetadata() {
+  const t = await getTranslations('metadata')
+
+  return {
+    title: t('title'),
+    description: t('description'),
+    keywords: t.raw('keywords'),
+    metadataBase: new URL(env.NEXT_PUBLIC_WEB_ADDRESS),
+    openGraph: {
+      title: t('ogTitle'),
+      description: t('ogDescription'),
+      url: env.NEXT_PUBLIC_WEB_ADDRESS,
+      siteName: 'Eventstage',
+      images: [
+        {
+          url: `${env.NEXT_PUBLIC_WEB_ADDRESS}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: t('ogAlt'),
+        },
+      ],
+      locale: t('ogLocale'),
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('twitterTitle'),
+      description: t('twitterDescription'),
+      images: [`${env.NEXT_PUBLIC_WEB_ADDRESS}/og-image.png`],
+    },
+    icons: {
+      icon: '/favicon.ico',
+    },
+    robots: {
+      index: true,
+      follow: true,
+    },
+  }
 }
 
 const oxanium = Oxanium({

@@ -36,7 +36,7 @@ export default async function EventDetails(props: InvitePageProps) {
           {event.subtitle}
         </h1>
       </div>
-      <div className="min-h-dvh flex justify-between gap-16 flex-col mb-20 items-center md:flex-row md:items-start">
+      <div className="min-h-dvh flex gap-16 flex-col mb-20 items-center md:flex-row md:items-start">
         <div className="flex flex-col gap-10 w-full max-w-[550px]">
           <div className="space-y-2">
             <h2 className="text-xl font-semibold font-heading text-gray-100 leading-none">
