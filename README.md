@@ -2,9 +2,23 @@
   <img src="src/assets/logo.svg" alt="Logo Eventstage" />
 </p>
 
+<p align="center">
+  Plataforma de eventos baseada na NLW Journey da <a href="https://www.rocketseat.com.br/">Rocketseat</a>, <strong>expandida</strong> e <strong>reestruturada</strong>.
+</p>
+
+---
+
+## Sobre o Projeto
+
 **Eventstage** é uma plataforma de eventos que teve como ponto de partida um projeto da NLW Journey da [Rocketseat](https://www.rocketseat.com.br/). A ideia original consistia em uma aplicação simples com apenas duas páginas, voltada para praticar conceitos de frontend.
 
 No entanto, este projeto foi além da proposta inicial. A partir da base fornecida pela Rocketseat, o Eventstage foi **reestruturado e expandido** para se tornar uma plataforma mais completa e funcional. Foram adicionadas novas funcionalidades, melhorias na interface e uma proposta de experiência mais robusta para o usuário.
+
+Essa evolução do projeto visa não apenas praticar o conteúdo aprendido, mas também demonstrar iniciativa em aplicar melhorias, criar novas ideias e simular uma aplicação real com potencial de uso.
+
+---
+
+## ✨ Funcionalidades
 
 Com o Eventstage, é possível:
 
@@ -13,12 +27,62 @@ Com o Eventstage, é possível:
 - Convidar pessoas através de links únicos de convite  
 - Subir no ranking do evento conforme mais pessoas se inscrevem usando seu link  
 
-Essa evolução do projeto visa não apenas praticar o conteúdo aprendido, mas também demonstrar iniciativa em aplicar melhorias, criar novas ideias e simular uma aplicação real com potencial de uso.
+---
 
 > ⚠️ **Este repositório contém apenas o frontend da aplicação.**  
-> O repositório do backend pode ser acessado [aqui](https://github.com/viniciusrvcruz/eventstage-frontend).
+> O repositório do backend pode ser acessado [aqui](https://github.com/viniciusrvcruz/eventstage-backend).
 
 ---
+
+## 🚀 Instalação
+
+Siga os passos abaixo para clonar o repositório, instalar as dependências e iniciar o projeto localmente:
+
+```bash
+# Clone o repositório
+git clone https://github.com/viniciusrvcruz/eventstage-frontend.git
+
+# Acesse a pasta do projeto
+cd eventstage-frontend
+
+# Instale as dependências
+npm install
+# ou
+yarn install
+```
+
+### ⚙️ Configuração das Variáveis de Ambiente
+
+Este projeto utiliza variáveis de ambiente para se comunicar com o backend e configurar alguns valores do frontend. Para isso:
+
+1. Copie o arquivo `.env.example` e renomeie para `.env`:
+
+```bash
+cp .env.example .env
+
+```
+
+2. Abra o arquivo .env e atualize os valores conforme necessário:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3333/api
+NEXT_PUBLIC_WEB_ADDRESS=http://localhost:3000
+```
+
+> Certifique-se de que o backend esteja rodando na mesma URL/porta especificada em `NEXT_PUBLIC_API_URL`.
+
+---
+
+### ▶️ Rodando o Projeto
+
+Após instalar as dependências e configurar as variáveis de ambiente, inicie o servidor de desenvolvimento:
+
+```bash
+npm run dev
+# ou
+yarn dev
+```
+
 
 ## 📦 Tecnologias e Principais Dependências
 
@@ -77,4 +141,4 @@ NEXT_PUBLIC_WEB_ADDRESS=http://localhost:3000
 ## 📝 License
 
 Licensed under the MIT License.
----
+
