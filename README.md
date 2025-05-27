@@ -8,6 +8,14 @@
 
 ---
 
+## 🌐 Projeto em Produção
+
+Você pode acessar a versão online do projeto clicando no link abaixo:
+
+🔗 [https://eventstage-frontend.vercel.app](https://eventstage-frontend.vercel.app)
+
+---
+
 ## Sobre o Projeto
 
 **Eventstage** é uma plataforma de eventos que teve como ponto de partida um projeto da NLW Journey da [Rocketseat](https://www.rocketseat.com.br/). A ideia original consistia em uma aplicação simples com apenas duas páginas, voltada para praticar conceitos de frontend.
