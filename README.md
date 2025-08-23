@@ -19,15 +19,15 @@ Essa evolução do projeto visa não apenas praticar o conteúdo aprendido, mas 
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="docs/images/landing-page.png" alt="Tela inicial" width="300"/>
-  <img src="docs/images/login.png" alt="Dashboard" width="300"/>
-  <img src="docs/images/events.png" alt="Evento" width="300"/>
+  <img src="docs/images/landing-page.png" alt="Tela inicial" width="250"/>
+  <img src="docs/images/login.png" alt="Dashboard" width="250"/>
+  <img src="docs/images/events.png" alt="Evento" width="250"/>
 </p>
 
 <p align="center">
-  <img src="docs/images/event-subscription.png" alt="Cadastro" width="300"/>
-  <img src="docs/images/event-page.png" alt="Login" width="300"/>
-  <img src="docs/images/event-page2.png" alt="Perfil" width="300"/>
+  <img src="docs/images/event-subscription.png" alt="Cadastro" width="250"/>
+  <img src="docs/images/event-page.png" alt="Login" width="250"/>
+  <img src="docs/images/event-page2.png" alt="Perfil" width="250"/>
 </p>
 
 ## ✨ Funcionalidades
