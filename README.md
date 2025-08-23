@@ -6,16 +6,6 @@
   Plataforma de eventos baseada na NLW Journey da <a href="https://www.rocketseat.com.br/">Rocketseat</a>, <strong>expandida</strong> e <strong>reestruturada</strong>.
 </p>
 
----
-
-## 🌐 Projeto em Produção
-
-Você pode acessar a versão online do projeto clicando no link abaixo:
-
-🔗 [https://eventstage-frontend.vercel.app](https://eventstage-frontend.vercel.app)
-
----
-
 ## Sobre o Projeto
 
 **Eventstage** é uma plataforma de eventos que teve como ponto de partida um projeto da NLW Journey da [Rocketseat](https://www.rocketseat.com.br/). A ideia original consistia em uma aplicação simples com apenas duas páginas, voltada para praticar conceitos de frontend.
@@ -25,6 +15,20 @@ No entanto, este projeto foi além da proposta inicial. A partir da base forneci
 Essa evolução do projeto visa não apenas praticar o conteúdo aprendido, mas também demonstrar iniciativa em aplicar melhorias, criar novas ideias e simular uma aplicação real com potencial de uso.
 
 ---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="docs/images/landing-page.png" alt="Tela inicial" width="300"/>
+  <img src="docs/images/login.png" alt="Dashboard" width="300"/>
+  <img src="docs/images/events.png" alt="Evento" width="300"/>
+</p>
+
+<p align="center">
+  <img src="docs/images/event-subscription.png" alt="Cadastro" width="300"/>
+  <img src="docs/images/event-page.png" alt="Login" width="300"/>
+  <img src="docs/images/event-page2.png" alt="Perfil" width="300"/>
+</p>
 
 ## ✨ Funcionalidades
 
